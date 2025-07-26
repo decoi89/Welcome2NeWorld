@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,8 +15,8 @@
     }
     .top-banner {
       width: 100%;
-      max-height: 180px;
-      object-fit: cover;
+      height: auto;
+      display: block;
     }
     .content {
       padding: 20px;
@@ -60,15 +61,6 @@
       max-width: 300px;
     }
   </style>
-  <script>
-    window.onload = () => {
-      const ua = navigator.userAgent;
-      const isAndroid = /android/i.test(ua);
-      const isIOS = /iPad|iPhone|iPod/.test(ua);
-      document.getElementById("android-buttons").style.display = isAndroid ? "block" : "none";
-      document.getElementById("ios-buttons").style.display = isIOS ? "block" : "none";
-    };
-  </script>
 </head>
 <body>
   <img src="background.png" alt="Fondo" class="top-banner" />
@@ -85,12 +77,12 @@
 
     <img src="wifi-qr.png" alt="QR WiFi" class="qr" />
 
-    <div id="android-buttons" style="display:none;">
+    <div id="android-buttons" style="display:block;">
       <a class="button" href="https://play.google.com/store/apps/details?id=integra.ayr.v2.beta&hl=es_419&pli=1">Descargar App 1 (Android)</a>
       <a class="button" href="https://play.google.com/store/apps/details?id=com.tuya.smart&hl=es_419">Descargar App 2 (Android)</a>
     </div>
 
-    <div id="ios-buttons" style="display:none;">
+    <div id="ios-buttons" style="display:block;">
       <a class="button" href="https://apps.apple.com/es/app/int-egra/id1556238682">Descargar App 1 (iOS)</a>
       <a class="button" href="https://apps.apple.com/es/app/tuya-smart/id1034649547">Descargar App 2 (iOS)</a>
     </div>
