@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -15,6 +16,7 @@
             font-family: Arial, sans-serif;
             color: white;
             text-align: center;
+            background: linear-gradient(to bottom, #000000, #333333);
         }
         .container {
             background-color: rgba(0, 0, 0, 0.6);
@@ -47,7 +49,7 @@
             font-size: 16px;
             text-decoration: none;
         }
-            .image-grid {
+        .image-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 15px;
@@ -55,48 +57,46 @@
             max-width: 900px;
             padding: 0 20px;
         }
-
         .image-grid img {
             width: 100%;
             border-radius: 10px;
             object-fit: cover;
         }
-            .header-img {
+        .header-img {
             width: 100%;
             height: auto;
             display: block;
         }
-</style>
+    </style>
     <script>
         function isIOS() {
             return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
         }
-
         function isAndroid() {
             return /Android/.test(navigator.userAgent);
         }
-
         window.onload = function () {
-    const tuyaBtn = document.getElementById('tuya-button');
-    const integraBtn = document.getElementById('integra-button');
+            const tuyaBtn = document.getElementById('tuya-button');
+            const integraBtn = document.getElementById('integra-button');
 
-    if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
-        tuyaBtn.href = "https://apps.apple.com/es/app/tuya-smart/id1034649547";
-        integraBtn.href = "https://apps.apple.com/es/app/int-egra/id1556238682";
-    } else {
-        tuyaBtn.href = "https://play.google.com/store/apps/details?id=com.tuya.smart&hl=es_419";
-        integraBtn.href = "https://play.google.com/store/apps/details?id=integra.ayr.v2.beta&hl=es_419";
-    }
-};
-        document.getElementById('tuya-button').addEventListener('click', function () {
-        this.classList.add('clicked');
-        this.textContent = 'Abriendo...';
-    });
-    document.getElementById('integra-button').addEventListener('click', function () {
-        this.classList.add('clicked');
-        this.textContent = 'Abriendo...';
-    });
-</script>
+            if (isIOS()) {
+                tuyaBtn.href = "https://apps.apple.com/es/app/tuya-smart/id1034649547";
+                integraBtn.href = "https://apps.apple.com/es/app/int-egra/id1556238682";
+            } else {
+                tuyaBtn.href = "https://play.google.com/store/apps/details?id=com.tuya.smart&hl=es_419";
+                integraBtn.href = "https://play.google.com/store/apps/details?id=integra.ayr.v2.beta&hl=es_419";
+            }
+
+            tuyaBtn.addEventListener('click', function () {
+                this.classList.add('clicked');
+                this.textContent = 'Abriendo...';
+            });
+            integraBtn.addEventListener('click', function () {
+                this.classList.add('clicked');
+                this.textContent = 'Abriendo...';
+            });
+        };
+    </script>
 </head>
 <body>
     <div class="header">
@@ -109,26 +109,19 @@
             Una vez estés conectad@, pulsa en los botones que hay a continuación para redirigirte a la descarga de las aplicaciones con las que podrás, entre otras funciones, abrir las puertas.
         </h2>
         <p><em>Como apunte, también encontrarás algunas típicas imágenes para mantener el orden y la buena convivencia.</em></p>
-
         <img src="wifi-qr.png" class="qr" alt="WiFi QR" />
-
         <div class="buttons">
-    <a id="tuya-button" class="btn" href="#">Tuya App</a>
-    <a id="integra-button" class="btn" href="#">Int_egra App</a>
-</div>
+            <a id="tuya-button" class="btn" href="#">Tuya App</a>
+            <a id="integra-button" class="btn" href="#">Int_egra App</a>
+        </div>
     </div>
-
-    <!-- Zona de imágenes de convivencia -->
     <div class="image-grid">
-        <!-- Ejemplos de imágenes -->
-        <img src="convivencia1.jpg" alt="Norma 1">
-        <img src="convivencia2.jpg" alt="Norma 2">
-        <img src="convivencia3.jpg" alt="Norma 3">
-        <!-- Espacios reservados para imágenes futuras -->
+        <img src="convivencia1.jpeg" alt="Norma 1">
+        <img src="convivencia2.jpeg" alt="Norma 2">
+        <img src="convivencia3.jpeg" alt="Norma 3">
         <img src="" alt="">
         <img src="" alt="">
         <img src="" alt="">
     </div>
-
 </body>
 </html>
