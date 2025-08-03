@@ -1,100 +1,120 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome2NeWorld</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NeWorld Apps</title>
     <style>
         body {
-            background-image: url('https://github.com/decoi89/Welcome2NeWorld/blob/main/background.png');
+            margin: 0;
+            padding: 0;
+            background-image: url('background.png');
             background-size: cover;
             background-position: center;
-            color: black;
             font-family: Arial, sans-serif;
+            color: white;
             text-align: center;
-            padding: 20px;
         }
         .container {
-            max-width: 500px;
-            margin: auto;
             background-color: rgba(0, 0, 0, 0.6);
-            padding: 20px;
-            border-radius: 15px;
+            margin: 0 auto;
+            max-width: 700px;
+            padding: 30px 20px;
+            border-radius: 10px;
+            margin-top: 50px;
         }
-        .icono {
-            margin-bottom: 20px;
-        }
-        .icono img {
+        img.icon {
             width: 80px;
+            height: auto;
         }
-        .qr {
+        img.qr {
             margin: 20px 0;
+            width: 150px;
+            height: auto;
         }
-        .app-buttons {
-            display: none;
-            flex-direction: column;
-            gap: 15px;
-            margin-top: 20px;
+        .buttons {
+            margin-top: 30px;
         }
         .btn {
-            background-color: #e62429;
+            display: inline-block;
+            background-color: #e60000;
             color: white;
-            padding: 15px;
+            padding: 15px 25px;
+            margin: 10px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
             text-decoration: none;
-            font-weight: bold;
-            border-radius: 10px;
         }
-        .desktop-message {
-            display: none;
-            margin-top: 40px;
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 40px auto;
+            max-width: 900px;
+            padding: 0 20px;
         }
 
-        @media screen and (min-width: 768px) {
-            .container, .qr {
-                display: none;
-            }
-            .desktop-message {
-                display: block;
-            }
+        .image-grid img {
+            width: 100%;
+            border-radius: 10px;
+            object-fit: cover;
         }
     </style>
+    <script>
+        function isIOS() {
+            return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        }
+
+        function isAndroid() {
+            return /Android/.test(navigator.userAgent);
+        }
+
+        window.onload = function () {
+            const iosButton = document.getElementById('ios-button');
+            const androidButton = document.getElementById('android-button');
+
+            if (isIOS()) {
+                iosButton.style.display = 'inline-block';
+                androidButton.style.display = 'none';
+            } else if (isAndroid()) {
+                iosButton.style.display = 'none';
+                androidButton.style.display = 'inline-block';
+            } else {
+                iosButton.style.display = 'none';
+                androidButton.style.display = 'none';
+            }
+        };
+    </script>
 </head>
 <body>
     <div class="container">
-        <div class="icono">
-            <img src="https://github.com/decoi89/Welcome2NeWorld/blob/main/icon.png" alt="Icono">
-        </div>
-        <h1>Bienvenido/a</h1>
-        <p>Pulsa sobre los siguientes botones para descargar las apps.</p>
+        <img src="icon.png" class="icon" alt="icono" />
+        <h2>
+            Bienvenid@ a NeWorld. Si tu dispositivo es Android y no se te ha conectado directamente a la red Wifi, o si bien tu dispositivo es iOS, descarga y/o escanea el QR con la aplicación nativa de tu dispositivo.<br /><br />
+            Una vez estés conectad@, pulsa en los botones que hay a continuación para redirigirte a la descarga de las aplicaciones con las que podrás, entre otras funciones, abrir las puertas.
+        </h2>
+        <p><em>Como apunte, también encontrarás algunas típicas imágenes para mantener el orden y la buena convivencia.</em></p>
 
-        <div class="qr">
-            <p>Escanea este código QR para conectarte automáticamente a la red WiFi:</p>
-            <img src="wifi_qr.png" alt="WiFi QR Code" width="250">
-        </div>
+        <img src="wifi-qr.png" class="qr" alt="WiFi QR" />
 
-        <div class="app-buttons" id="android-buttons">
-            <a href="https://play.google.com/store/apps/details?id=com.tuya.smart&hl=es_419" class="btn">Tuya App</a>
-            <a href="https://play.google.com/store/apps/details?id=integra.ayr.v2.beta&hl=es_419&pli=1" class="btn">int_egra App</a>
-        </div>
-
-        <div class="app-buttons" id="ios-buttons">
-            <a href="https://apps.apple.com/es/app/tuya-smart/id1034649547" class="btn">Tuya App</a>
-            <a href="https://apps.apple.com/es/app/int-egra/id1556238682" class="btn">int_egra App</a>
+        <div class="buttons">
+            <a id="android-button" href="https://play.google.com/store/apps/details?id=com.example.tuya" class="btn" style="display:none">Tuya App</a>
+            <a id="ios-button" href="https://apps.apple.com/app/example-integra/id123456789" class="btn" style="display:none">Int_egra App</a>
         </div>
     </div>
 
-    <div class="desktop-message">
-        <p>Esta página está diseñada para usarse desde un dispositivo móvil con NFC.</p>
+    <!-- Zona de imágenes de convivencia -->
+    <div class="image-grid">
+        <!-- Ejemplos de imágenes -->
+        <img src="convivencia1.jpg" alt="Norma 1">
+        <img src="convivencia2.jpg" alt="Norma 2">
+        <img src="convivencia3.jpg" alt="Norma 3">
+        <!-- Espacios reservados para imágenes futuras -->
+        <img src="" alt="">
+        <img src="" alt="">
+        <img src="" alt="">
     </div>
 
-    <script>
-        const ua = navigator.userAgent;
-        if (/android/i.test(ua)) {
-            document.getElementById("android-buttons").style.display = "flex";
-        } else if (/iphone|ipad|ipod/i.test(ua)) {
-            document.getElementById("ios-buttons").style.display = "flex";
-        }
-    </script>
 </body>
 </html>
