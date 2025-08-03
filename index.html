@@ -7,7 +7,9 @@
     <title>Welcome2NeWorld</title>
     <style>
         body {
-            background-color: #000;
+            background-image: url('fondo_negro_con_estilo.png');
+            background-size: cover;
+            background-position: center;
             color: white;
             font-family: Arial, sans-serif;
             text-align: center;
@@ -16,6 +18,15 @@
         .container {
             max-width: 500px;
             margin: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 15px;
+        }
+        .icono {
+            margin-bottom: 20px;
+        }
+        .icono img {
+            width: 80px;
         }
         .qr {
             margin: 20px 0;
@@ -51,6 +62,9 @@
 </head>
 <body>
     <div class="container">
+        <div class="icono">
+            <img src="icono_auriculares.png" alt="Icono">
+        </div>
         <h1>Bienvenido/a</h1>
         <p>Pulsa sobre los siguientes botones para descargar las apps.</p>
 
