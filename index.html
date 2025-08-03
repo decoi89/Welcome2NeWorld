@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NeWorld Apps</title>
     <style>
+        .btn.clicked {
+            background-color: #28a745 !important;
+            transition: background-color 0.3s ease;
+        }
         body {
             margin: 0;
             padding: 0;
-            background-image: url('background.png');
-            background-size: cover;
-            background-position: center;
             font-family: Arial, sans-serif;
             color: white;
             text-align: center;
@@ -46,7 +47,7 @@
             font-size: 16px;
             text-decoration: none;
         }
-        .image-grid {
+            .image-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 15px;
@@ -60,7 +61,12 @@
             border-radius: 10px;
             object-fit: cover;
         }
-    </style>
+            .header-img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+</style>
     <script>
         function isIOS() {
             return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
@@ -71,23 +77,31 @@
         }
 
         window.onload = function () {
-            const iosButton = document.getElementById('ios-button');
-            const androidButton = document.getElementById('android-button');
+    const tuyaBtn = document.getElementById('tuya-button');
+    const integraBtn = document.getElementById('integra-button');
 
-            if (isIOS()) {
-                iosButton.style.display = 'inline-block';
-                androidButton.style.display = 'none';
-            } else if (isAndroid()) {
-                iosButton.style.display = 'none';
-                androidButton.style.display = 'inline-block';
-            } else {
-                iosButton.style.display = 'none';
-                androidButton.style.display = 'none';
-            }
-        };
-    </script>
+    if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
+        tuyaBtn.href = "https://apps.apple.com/es/app/tuya-smart/id1034649547";
+        integraBtn.href = "https://apps.apple.com/es/app/int-egra/id1556238682";
+    } else {
+        tuyaBtn.href = "https://play.google.com/store/apps/details?id=com.tuya.smart&hl=es_419";
+        integraBtn.href = "https://play.google.com/store/apps/details?id=integra.ayr.v2.beta&hl=es_419";
+    }
+};
+        document.getElementById('tuya-button').addEventListener('click', function () {
+        this.classList.add('clicked');
+        this.textContent = 'Abriendo...';
+    });
+    document.getElementById('integra-button').addEventListener('click', function () {
+        this.classList.add('clicked');
+        this.textContent = 'Abriendo...';
+    });
+</script>
 </head>
 <body>
+    <div class="header">
+        <img src="background.png" alt="cabecera" class="header-img">
+    </div>
     <div class="container">
         <img src="icon.png" class="icon" alt="icono" />
         <h2>
@@ -99,9 +113,9 @@
         <img src="wifi-qr.png" class="qr" alt="WiFi QR" />
 
         <div class="buttons">
-            <a id="android-button" href="https://play.google.com/store/apps/details?id=com.example.tuya" class="btn" style="display:none">Tuya App</a>
-            <a id="ios-button" href="https://apps.apple.com/app/example-integra/id123456789" class="btn" style="display:none">Int_egra App</a>
-        </div>
+    <a id="tuya-button" class="btn" href="#">Tuya App</a>
+    <a id="integra-button" class="btn" href="#">Int_egra App</a>
+</div>
     </div>
 
     <!-- Zona de imágenes de convivencia -->
