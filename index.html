@@ -2,91 +2,85 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DCIsland - Bienvenido</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: black;
-      color: white;
-      text-align: center;
-    }
-    .top-banner {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .content {
-      padding: 20px;
-    }
-    .header {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-    .header img {
-      width: 60px;
-      height: 60px;
-    }
-    .header h1 {
-      font-size: 18px;
-      background: rgba(0, 0, 0, 0.6);
-      padding: 10px;
-      border-radius: 10px;
-      max-width: 600px;
-    }
-    .qr {
-      width: 220px;
-      margin: 20px auto;
-    }
-    .button {
-      display: block;
-      margin: 10px auto;
-      padding: 12px;
-      background-color: #ff0000;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      max-width: 300px;
-    }
-  </style>
-  <script>
-    window.onload = () => {
-      const ua = navigator.userAgent.toLowerCase();
-      const isAndroid = ua.includes("android");
-      const isIOS = /iphone|ipad|ipod/.test(ua);
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome2NeWorld</title>
+    <style>
+        body {
+            background-color: #000;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+        }
+        .qr {
+            margin: 20px 0;
+        }
+        .app-buttons {
+            display: none;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .btn {
+            background-color: #e62429;
+            color: white;
+            padding: 15px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 10px;
+        }
+        .desktop-message {
+            display: none;
+            margin-top: 40px;
+        }
 
-      if (isAndroid) {
-        document.getElementById("android-buttons").style.display = "block";
-      } else if (isIOS) {
-        document.getElementById("ios-buttons").style.display = "block";
-      }
-    };
-  </script>
+        @media screen and (min-width: 768px) {
+            .container, .qr {
+                display: none;
+            }
+            .desktop-message {
+                display: block;
+            }
+        }
+    </style>
 </head>
 <body>
-  <img src="background.png" alt="Fondo" class="top-banner" />
-  <div class="content">
-    <div class="header">
-      <img src="icon.png" alt="Icono" />
-      <h1>Bienvenido/a, pulsa sobre los siguientes botones para descargar las apps, en el caso de que tu dispositivo sea iOS escanea antes el QR para aceder a los datos de conexion a la Wifi.</h1>
+    <div class="container">
+        <h1>Bienvenido/a</h1>
+        <p>Pulsa sobre los siguientes botones para descargar las apps.</p>
+
+        <div class="qr">
+            <p>Escanea este código QR para conectarte automáticamente a la red WiFi:</p>
+            <img src="wifi_qr.png" alt="WiFi QR Code" width="250">
+        </div>
+
+        <div class="app-buttons" id="android-buttons">
+            <a href="https://play.google.com/store/apps/details?id=com.tuya.smart&hl=es_419" class="btn">Tuya App</a>
+            <a href="https://play.google.com/store/apps/details?id=integra.ayr.v2.beta&hl=es_419&pli=1" class="btn">int_egra App</a>
+        </div>
+
+        <div class="app-buttons" id="ios-buttons">
+            <a href="https://apps.apple.com/es/app/tuya-smart/id1034649547" class="btn">Tuya App</a>
+            <a href="https://apps.apple.com/es/app/int-egra/id1556238682" class="btn">int_egra App</a>
+        </div>
     </div>
 
-    <img src="wifi-qr.png" alt="QR WiFi" class="qr" />
-
-    <div id="android-buttons" style="display:none;">
-      <a class="button" href="https://play.google.com/store/apps/details?id=integra.ayr.v2.beta&hl=es_419&pli=1">Descargar App 1 (Android)</a>
-      <a class="button" href="https://play.google.com/store/apps/details?id=com.tuya.smart&hl=es_419">Descargar App 2 (Android)</a>
+    <div class="desktop-message">
+        <p>Esta página está diseñada para usarse desde un dispositivo móvil con NFC.</p>
     </div>
 
-    <div id="ios-buttons" style="display:none;">
-      <a class="button" href="https://apps.apple.com/es/app/int-egra/id1556238682">Descargar App 1 (iOS)</a>
-      <a class="button" href="https://apps.apple.com/es/app/tuya-smart/id1034649547">Descargar App 2 (iOS)</a>
-    </div>
-  </div>
+    <script>
+        const ua = navigator.userAgent;
+        if (/android/i.test(ua)) {
+            document.getElementById("android-buttons").style.display = "flex";
+        } else if (/iphone|ipad|ipod/i.test(ua)) {
+            document.getElementById("ios-buttons").style.display = "flex";
+        }
+    </script>
 </body>
 </html>
