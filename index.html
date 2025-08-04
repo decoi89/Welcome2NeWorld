@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -81,13 +80,24 @@
     window.onload = function () {
       const tuyaBtn = document.getElementById('tuya-button');
       const integraBtn = document.getElementById('integra-button');
+      const qrContainer = document.getElementById('qr-button-container');
+
       if (isIOS()) {
         tuyaBtn.href = "https://apps.apple.com/es/app/tuya-smart/id1034649547";
         integraBtn.href = "https://apps.apple.com/es/app/int-egra/id1556238682";
-      } else {
+        qrContainer.innerHTML = `<p style="color: #ccc;">Abre la app de cámara de tu iPhone para escanear el QR.</p>`;
+      } else if (isAndroid()) {
         tuyaBtn.href = "https://play.google.com/store/apps/details?id=com.tuya.smart&hl=es_419";
         integraBtn.href = "https://play.google.com/store/apps/details?id=integra.ayr.v2.beta&hl=es_419";
+        qrContainer.innerHTML = `
+          <a class="btn" href="intent://scan/#Intent;scheme=zxing;package=com.google.zxing.client.android;end">Abrir escáner QR</a><br>
+          <a class="btn" href="https://play.google.com/store/apps/details?id=com.google.zxing.client.android" target="_blank">Descargar escáner QR</a>
+          <br><small style="color: #ccc;">Necesitas tener instalada la app "Barcode Scanner"</small>
+        `;
+      } else {
+        qrContainer.innerHTML = `<p style="color: #888;">No disponible para este dispositivo</p>`;
       }
+
       tuyaBtn.addEventListener('click', function () {
         this.classList.add('clicked');
         this.textContent = 'Abriendo...';
@@ -111,8 +121,7 @@
     </h2>
     <div style="margin-bottom: 20px;">
       <img src="wifi-qr.png" class="qr" id="qr-img" alt="WiFi QR" />
-      <br>
-      <a class="btn" href="https://play.google.com/store/apps/details?id=com.google.zxing.client.android" target="_blank">Abrir escáner QR</a>
+      <div id="qr-button-container"></div>
     </div>
 
     <h2>
