@@ -103,60 +103,60 @@
         <img src="background.png" alt="cabecera" class="header-img">
     </div>
     <div class="container">
+        <h2>Bienvenid@ a NeWorld. Antes de nada vamos a conectarte a la Wifi para facilitarte las cosas.</h2>
         <img src="icon.png" alt="icono" class="icon">
         <h2>
-            Bienvenid@ a NeWorld. Descarga y/o escanea el QR con la aplicación nativa de tu dispositivo o pulsa sobre el botón que hay justo debajo del QR para abrir el lector de QR directamente.<br /><br />
-
-            Una vez estés conectad@, pulsa en los botones que hay a continuación para redirigirte a la descarga de las aplicaciones con las que podrás, entre otras funciones, abrir las puertas.
+            Descarga y/o escanea el QR con la aplicación nativa de tu dispositivo o pulsa sobre el botón que hay justo debajo del QR para abrir el lector de QR directamente.
         </h2>
-        <p><em>Por último, pero no menos importante, con el fin de procurar una buena convivencia, encontrarás algunas típicas imágenes al final de la página para ayudarnos a mantener el orden. Te agradecería que les echases un vistazo y las tengas en cuenta, además, ¡¡son ciertamente divertidas!! ¡¡Nos vemos por el pasillo!!</em></p>
-
         <div style="margin-bottom: 20px;">
             <img src="wifi-qr.png" class="qr" id="qr-img" alt="WiFi QR" />
             <br>
             <a class="btn" href="intent://scan/#Intent;scheme=zxing;package=com.google.zxing.client.android;end">Abrir escáner QR</a>
         </div>
 
+        <h2>
+            Una vez estés conectad@, pulsa en los botones que hay a continuación para redirigirte a la descarga de las aplicaciones con las que podrás, entre otras funciones, abrir las puertas.
+        </h2>
         <div class="buttons">
             <a id="tuya-button" class="btn" href="#">Tuya App</a>
             <a id="integra-button" class="btn" href="#">Int_egra App</a>
         </div>
-    </div>
 
-    <div class="image-grid">
-        <img src="convivencia1.jpg" alt="Norma 1">
-        <img src="convivencia2.jpg" alt="Norma 2">
-        <img src="convivencia3.jpg" alt="Norma 3">
-        <img src="" alt="">
-        <img src="" alt="">
-        <img src="" alt="">
-    </div>
+        <h2>
+            Por último, pero no menos importante, con el fin de procurar una buena convivencia, encontrarás algunas típicas imágenes al final de la página para ayudarnos a mantener el orden. Te agradecería que les echases un vistazo y las tengas en cuenta, además, ¡¡son ciertamente divertidas!! ¡¡Nos vemos por el pasillo!!
+        </h2>
+        <div class="image-grid">
+            <img src="convivencia1.jpeg" alt="Norma 1">
+            <img src="convivencia2.jpeg" alt="Norma 2">
+            <img src="convivencia3.jpeg" alt="Norma 3">
+        </div>
 
-    <div id="lightbox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center;">
-        <img id="lightbox-img" src="" style="max-width:90%; max-height:90%; border-radius:10px;" />
-    </div>
-    <script>
-        const images = document.querySelectorAll('.image-grid img');
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-        const qrImg = document.getElementById('qr-img');
+        <div id="lightbox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center;">
+            <img id="lightbox-img" src="" style="max-width:90%; max-height:90%; border-radius:10px;" />
+        </div>
+        <script>
+            const images = document.querySelectorAll('.image-grid img');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const qrImg = document.getElementById('qr-img');
 
-        images.forEach(img => {
-            img.addEventListener('click', () => {
-                lightboxImg.src = img.src;
+            images.forEach(img => {
+                img.addEventListener('click', () => {
+                    lightboxImg.src = img.src;
+                    lightbox.style.display = 'flex';
+                });
+            });
+
+            qrImg.addEventListener('click', () => {
+                lightboxImg.src = qrImg.src;
                 lightbox.style.display = 'flex';
             });
-        });
 
-        qrImg.addEventListener('click', () => {
-            lightboxImg.src = qrImg.src;
-            lightbox.style.display = 'flex';
-        });
-
-        lightbox.addEventListener('click', () => {
-            lightbox.style.display = 'none';
-            lightboxImg.src = '';
-        });
-    </script>
+            lightbox.addEventListener('click', () => {
+                lightbox.style.display = 'none';
+                lightboxImg.src = '';
+            });
+        </script>
+    </div>
 </body>
 </html>
