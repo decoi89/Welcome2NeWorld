@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -90,9 +91,7 @@
         tuyaBtn.href = "https://play.google.com/store/apps/details?id=com.tuya.smart&hl=es_419";
         integraBtn.href = "https://play.google.com/store/apps/details?id=integra.ayr.v2.beta&hl=es_419";
         qrContainer.innerHTML = `
-          <a class="btn" href="intent://scan/#Intent;scheme=zxing;package=com.google.zxing.client.android;end">Abrir escáner QR</a><br>
-          <a class="btn" href="https://play.google.com/store/apps/details?id=com.google.zxing.client.android" target="_blank">Descargar escáner QR</a>
-          <br><small style="color: #ccc;">Necesitas tener instalada la app "Barcode Scanner"</small>
+          <a class="btn" href="https://play.google.com/store/apps/details?id=com.qrtech.qrcodereader.barcodescanner.qrscanner.qrcodescanner&hl=es" target="_blank">Abrir o descargar escáner QR</a>
         `;
       } else {
         qrContainer.innerHTML = `<p style="color: #888;">No disponible para este dispositivo</p>`;
