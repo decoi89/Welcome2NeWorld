@@ -26,13 +26,16 @@
             margin-top: 50px;
         }
         img.icon {
-            width: 200px;
+            width: 300px;
             height: auto;
         }
-        img.qr {
+        .qr {
             margin: 20px 0;
             width: 150px;
             height: auto;
+            cursor: pointer;
+            border: 2px solid white;
+            border-radius: 10px;
         }
         .buttons {
             margin-top: 30px;
@@ -71,15 +74,12 @@
         function isIOS() {
             return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
         }
-
         function isAndroid() {
             return /Android/.test(navigator.userAgent);
         }
-
         window.onload = function () {
             const tuyaBtn = document.getElementById('tuya-button');
             const integraBtn = document.getElementById('integra-button');
-
             if (isIOS()) {
                 tuyaBtn.href = "https://apps.apple.com/es/app/tuya-smart/id1034649547";
                 integraBtn.href = "https://apps.apple.com/es/app/int-egra/id1556238682";
@@ -87,12 +87,10 @@
                 tuyaBtn.href = "https://play.google.com/store/apps/details?id=com.tuya.smart&hl=es_419";
                 integraBtn.href = "https://play.google.com/store/apps/details?id=integra.ayr.v2.beta&hl=es_419";
             }
-
             tuyaBtn.addEventListener('click', function () {
                 this.classList.add('clicked');
                 this.textContent = 'Abriendo...';
             });
-
             integraBtn.addEventListener('click', function () {
                 this.classList.add('clicked');
                 this.textContent = 'Abriendo...';
@@ -107,12 +105,17 @@
     <div class="container">
         <img src="icon.png" alt="icono" class="icon">
         <h2>
-            Bienvenid@ a NeWorld. Si tu dispositivo es Android y no se te ha conectado directamente a la red Wifi, o si bien tu dispositivo es iOS, descarga y/o escanea el QR con la aplicación nativa de tu dispositivo.<br /><br />
+            Bienvenid@ a NeWorld. Descarga y/o escanea el QR con la aplicación nativa de tu dispositivo o pulsa sobre el botón que hay justo debajo del QR para abrir el lector de QR directamente.<br /><br />
+
             Una vez estés conectad@, pulsa en los botones que hay a continuación para redirigirte a la descarga de las aplicaciones con las que podrás, entre otras funciones, abrir las puertas.
         </h2>
-        <p><em>Como apunte, también encontrarás algunas típicas imágenes para mantener el orden y la buena convivencia.</em></p>
+        <p><em>Por último, pero no menos importante, con el fin de procurar una buena convivencia, encontrarás algunas típicas imágenes al final de la página para ayudarnos a mantener el orden. Te agradecería que les echases un vistazo y las tengas en cuenta, además, ¡¡son ciertamente divertidas!! ¡¡Nos vemos por el pasillo!!</em></p>
 
-        <img src="wifi-qr.png" class="qr" alt="WiFi QR" />
+        <div style="margin-bottom: 20px;">
+            <img src="wifi-qr.png" class="qr" id="qr-img" alt="WiFi QR" />
+            <br>
+            <a class="btn" href="intent://scan/#Intent;scheme=zxing;package=com.google.zxing.client.android;end">Abrir escáner QR</a>
+        </div>
 
         <div class="buttons">
             <a id="tuya-button" class="btn" href="#">Tuya App</a>
@@ -120,11 +123,10 @@
         </div>
     </div>
 
-    <!-- Zona de imágenes de convivencia -->
     <div class="image-grid">
-        <img src="convivencia1.jpeg" alt="Norma 1">
-        <img src="convivencia2.jpeg" alt="Norma 2">
-        <img src="convivencia3.jpeg" alt="Norma 3">
+        <img src="convivencia1.jpg" alt="Norma 1">
+        <img src="convivencia2.jpg" alt="Norma 2">
+        <img src="convivencia3.jpg" alt="Norma 3">
         <img src="" alt="">
         <img src="" alt="">
         <img src="" alt="">
@@ -137,12 +139,18 @@
         const images = document.querySelectorAll('.image-grid img');
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
+        const qrImg = document.getElementById('qr-img');
 
         images.forEach(img => {
             img.addEventListener('click', () => {
                 lightboxImg.src = img.src;
                 lightbox.style.display = 'flex';
             });
+        });
+
+        qrImg.addEventListener('click', () => {
+            lightboxImg.src = qrImg.src;
+            lightbox.style.display = 'flex';
         });
 
         lightbox.addEventListener('click', () => {
