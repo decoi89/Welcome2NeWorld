@@ -1,162 +1,161 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NeWorld Apps</title>
-    <style>
-        .btn.clicked {
-            background-color: #28a745 !important;
-            transition: background-color 0.3s ease;
-        }
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            color: white;
-            text-align: center;
-            background: linear-gradient(to bottom, #000000, #333333);
-        }
-        .container {
-            background-color: rgba(0, 0, 0, 0.6);
-            margin: 0 auto;
-            max-width: 700px;
-            padding: 30px 20px;
-            border-radius: 10px;
-            margin-top: 50px;
-        }
-        img.icon {
-            width: 300px;
-            height: auto;
-        }
-        .qr {
-            margin: 20px 0;
-            width: 150px;
-            height: auto;
-            cursor: pointer;
-            border: 2px solid white;
-            border-radius: 10px;
-        }
-        .buttons {
-            margin-top: 30px;
-        }
-        .btn {
-            display: inline-block;
-            background-color: #e60000;
-            color: white;
-            padding: 15px 25px;
-            margin: 10px;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            text-decoration: none;
-        }
-        .image-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin: 40px auto;
-            max-width: 900px;
-            padding: 0 20px;
-        }
-        .image-grid img {
-            width: 100%;
-            border-radius: 10px;
-            object-fit: cover;
-        }
-        .header-img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-    </style>
-    <script>
-        function isIOS() {
-            return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-        }
-        function isAndroid() {
-            return /Android/.test(navigator.userAgent);
-        }
-        window.onload = function () {
-            const tuyaBtn = document.getElementById('tuya-button');
-            const integraBtn = document.getElementById('integra-button');
-            if (isIOS()) {
-                tuyaBtn.href = "https://apps.apple.com/es/app/tuya-smart/id1034649547";
-                integraBtn.href = "https://apps.apple.com/es/app/int-egra/id1556238682";
-            } else {
-                tuyaBtn.href = "https://play.google.com/store/apps/details?id=com.tuya.smart&hl=es_419";
-                integraBtn.href = "https://play.google.com/store/apps/details?id=integra.ayr.v2.beta&hl=es_419";
-            }
-            tuyaBtn.addEventListener('click', function () {
-                this.classList.add('clicked');
-                this.textContent = 'Abriendo...';
-            });
-            integraBtn.addEventListener('click', function () {
-                this.classList.add('clicked');
-                this.textContent = 'Abriendo...';
-            });
-        };
-    </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeWorld Apps</title>
+  <style>
+    .btn.clicked {
+      background-color: #28a745 !important;
+      transition: background-color 0.3s ease;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+      background: linear-gradient(to bottom, #000000, #333333);
+    }
+    .container {
+      background-color: rgba(0, 0, 0, 0.6);
+      margin: 0 auto;
+      max-width: 700px;
+      padding: 30px 20px;
+      border-radius: 10px;
+      margin-top: 50px;
+    }
+    img.icon {
+      width: 300px;
+      height: auto;
+    }
+    .qr {
+      margin: 20px 0;
+      width: 150px;
+      height: auto;
+      cursor: pointer;
+      border: 2px solid white;
+      border-radius: 10px;
+    }
+    .buttons {
+      margin-top: 30px;
+    }
+    .btn {
+      display: inline-block;
+      background-color: #e60000;
+      color: white;
+      padding: 15px 25px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      text-decoration: none;
+    }
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin: 40px auto;
+      max-width: 900px;
+      padding: 0 20px;
+    }
+    .image-grid img {
+      width: 100%;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+    .header-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  </style>
+  <script>
+    function isIOS() {
+      return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    }
+    function isAndroid() {
+      return /Android/.test(navigator.userAgent);
+    }
+    window.onload = function () {
+      const tuyaBtn = document.getElementById('tuya-button');
+      const integraBtn = document.getElementById('integra-button');
+      if (isIOS()) {
+        tuyaBtn.href = "https://apps.apple.com/es/app/tuya-smart/id1034649547";
+        integraBtn.href = "https://apps.apple.com/es/app/int-egra/id1556238682";
+      } else {
+        tuyaBtn.href = "https://play.google.com/store/apps/details?id=com.tuya.smart&hl=es_419";
+        integraBtn.href = "https://play.google.com/store/apps/details?id=integra.ayr.v2.beta&hl=es_419";
+      }
+      tuyaBtn.addEventListener('click', function () {
+        this.classList.add('clicked');
+        this.textContent = 'Abriendo...';
+      });
+      integraBtn.addEventListener('click', function () {
+        this.classList.add('clicked');
+        this.textContent = 'Abriendo...';
+      });
+    };
+  </script>
 </head>
 <body>
-    <div class="header">
-        <img src="background.png" alt="cabecera" class="header-img">
+  <div class="header">
+    <img src="background.png" alt="cabecera" class="header-img">
+  </div>
+  <div class="container">
+    <h2>Bienvenid@ a NeWorld. Antes de nada vamos a conectarte a la Wifi para facilitarte las cosas.</h2>
+    <img src="icon.png" alt="icono" class="icon">
+    <h2>
+      Descarga y/o escanea el QR con la aplicación nativa de tu dispositivo o pulsa sobre el botón que hay justo debajo del QR para abrir el lector de QR directamente.
+    </h2>
+    <div style="margin-bottom: 20px;">
+      <img src="wifi-qr.png" class="qr" id="qr-img" alt="WiFi QR" />
+      <br>
+      <a class="btn" href="https://play.google.com/store/apps/details?id=com.google.zxing.client.android" target="_blank">Abrir escáner QR</a>
     </div>
-    <div class="container">
-        <h2>Bienvenid@ a NeWorld. Antes de nada vamos a conectarte a la Wifi para facilitarte las cosas.</h2>
-        <img src="icon.png" alt="icono" class="icon">
-        <h2>
-            Descarga y/o escanea el QR con la aplicación nativa de tu dispositivo o pulsa sobre el botón que hay justo debajo del QR para abrir el lector de QR directamente.
-        </h2>
-        <div style="margin-bottom: 20px;">
-            <img src="wifi-qr.png" class="qr" id="qr-img" alt="WiFi QR" />
-            <br>
-            <a class="btn" href="intent://scan/#Intent;scheme=zxing;package=com.google.zxing.client.android;end">Abrir escáner QR</a>
-        </div>
 
-        <h2>
-            Una vez estés conectad@, pulsa en los botones que hay a continuación para redirigirte a la descarga de las aplicaciones con las que podrás, entre otras funciones, abrir las puertas.
-        </h2>
-        <div class="buttons">
-            <a id="tuya-button" class="btn" href="#">Tuya App</a>
-            <a id="integra-button" class="btn" href="#">Int_egra App</a>
-        </div>
-
-        <h2>
-            Por último, pero no menos importante, con el fin de procurar una buena convivencia, encontrarás algunas típicas imágenes al final de la página para ayudarnos a mantener el orden. Te agradecería que les echases un vistazo y las tengas en cuenta, además, ¡¡son ciertamente divertidas!! ¡¡Nos vemos por el pasillo!!
-        </h2>
-        <div class="image-grid">
-            <img src="convivencia1.jpeg" alt="Norma 1">
-            <img src="convivencia2.jpeg" alt="Norma 2">
-            <img src="convivencia3.jpeg" alt="Norma 3">
-        </div>
-
-        <div id="lightbox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center;">
-            <img id="lightbox-img" src="" style="max-width:90%; max-height:90%; border-radius:10px;" />
-        </div>
-        <script>
-            const images = document.querySelectorAll('.image-grid img');
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = document.getElementById('lightbox-img');
-            const qrImg = document.getElementById('qr-img');
-
-            images.forEach(img => {
-                img.addEventListener('click', () => {
-                    lightboxImg.src = img.src;
-                    lightbox.style.display = 'flex';
-                });
-            });
-
-            qrImg.addEventListener('click', () => {
-                lightboxImg.src = qrImg.src;
-                lightbox.style.display = 'flex';
-            });
-
-            lightbox.addEventListener('click', () => {
-                lightbox.style.display = 'none';
-                lightboxImg.src = '';
-            });
-        </script>
+    <h2>
+      Una vez estés conectad@, pulsa en los botones que hay a continuación para redirigirte a la descarga de las aplicaciones con las que podrás, entre otras funciones, abrir las puertas.
+    </h2>
+    <div class="buttons">
+      <a id="tuya-button" class="btn" href="#">Tuya App</a>
+      <a id="integra-button" class="btn" href="#">Int_egra App</a>
     </div>
+
+    <p><em>Por último, pero no menos importante, con el fin de procurar una buena convivencia, encontrarás algunas típicas imágenes al final de la página para ayudarnos a mantener el orden. Te agradecería que les echases un vistazo y las tengas en cuenta, además, ¡¡son ciertamente divertidas!! ¡¡Nos vemos por el pasillo!!</em></p>
+    <div class="image-grid">
+      <img src="convivencia1.jpeg" alt="Norma 1">
+      <img src="convivencia2.jpeg" alt="Norma 2">
+      <img src="convivencia3.jpeg" alt="Norma 3">
+    </div>
+
+    <div id="lightbox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center;">
+      <img id="lightbox-img" src="" style="max-width:90%; max-height:90%; border-radius:10px;" />
+    </div>
+    <script>
+      const images = document.querySelectorAll('.image-grid img');
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const qrImg = document.getElementById('qr-img');
+
+      images.forEach(img => {
+        img.addEventListener('click', () => {
+          lightboxImg.src = img.src;
+          lightbox.style.display = 'flex';
+        });
+      });
+
+      qrImg.addEventListener('click', () => {
+        lightboxImg.src = qrImg.src;
+        lightbox.style.display = 'flex';
+      });
+
+      lightbox.addEventListener('click', () => {
+        lightbox.style.display = 'none';
+        lightboxImg.src = '';
+      });
+    </script>
+  </div>
 </body>
 </html>
