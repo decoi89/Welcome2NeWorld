@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NeWorld Apps</title>
-  <style>
+  <title>Wlcome2NeWorld Apps</title>
+    <style>
     .btn.clicked {
       background-color: #28a745 !important;
       transition: background-color 0.3s ease;
@@ -81,20 +81,13 @@
     window.onload = function () {
       const tuyaBtn = document.getElementById('tuya-button');
       const integraBtn = document.getElementById('integra-button');
-      const qrContainer = document.getElementById('qr-button-container');
 
       if (isIOS()) {
         tuyaBtn.href = "https://apps.apple.com/es/app/tuya-smart/id1034649547";
         integraBtn.href = "https://apps.apple.com/es/app/int-egra/id1556238682";
-        qrContainer.innerHTML = `<p style="color: #ccc;">Abre la app de cámara de tu iPhone para escanear el QR.</p>`;
       } else if (isAndroid()) {
         tuyaBtn.href = "https://play.google.com/store/apps/details?id=com.tuya.smart&hl=es_419";
         integraBtn.href = "https://play.google.com/store/apps/details?id=integra.ayr.v2.beta&hl=es_419";
-        qrContainer.innerHTML = `
-          <a class="btn" href="https://play.google.com/store/apps/details?id=com.qrtech.qrcodereader.barcodescanner.qrscanner.qrcodescanner&hl=es" target="_blank">Abrir o descargar escáner QR</a>
-        `;
-      } else {
-        qrContainer.innerHTML = `<p style="color: #888;">No disponible para este dispositivo</p>`;
       }
 
       tuyaBtn.addEventListener('click', function () {
@@ -115,23 +108,19 @@
   <div class="container">
     <h2>Bienvenid@ a NeWorld. Antes de nada vamos a conectarte a la Wifi para facilitarte las cosas.</h2>
     <img src="icon.png" alt="icono" class="icon">
-    <h2>
-      Descarga y/o escanea el QR con la aplicación nativa de tu dispositivo o pulsa sobre el botón que hay justo debajo del QR para abrir el lector de QR directamente.
-    </h2>
+    <h2>Escanea el siguiente código QR con la app de cámara de tu dispositivo para conectarte a la red WiFi automáticamente.</h2>
+
     <div style="margin-bottom: 20px;">
       <img src="wifi-qr.png" class="qr" id="qr-img" alt="WiFi QR" />
-      <div id="qr-button-container"></div>
     </div>
 
-    <h2>
-      Una vez estés conectad@, pulsa en los botones que hay a continuación para redirigirte a la descarga de las aplicaciones con las que podrás, entre otras funciones, abrir las puertas.
-    </h2>
+    <h2>Una vez estés conectad@, pulsa en los botones que hay a continuación para redirigirte a la descarga de las aplicaciones con las que podrás, entre otras funciones, abrir las puertas.</h2>
     <div class="buttons">
       <a id="tuya-button" class="btn" href="#">Tuya App</a>
       <a id="integra-button" class="btn" href="#">Int_egra App</a>
     </div>
 
-    <p><em>Por último, pero no menos importante, con el fin de procurar una buena convivencia, encontrarás algunas típicas imágenes al final de la página para ayudarnos a mantener el orden. Te agradecería que les echases un vistazo y las tengas en cuenta, además, ¡¡son ciertamente divertidas!! ¡¡Nos vemos por el pasillo!!</em></p>
+    <h2>Por último, pero no menos importante, con el fin de procurar una buena convivencia, encontrarás algunas típicas imágenes al final de la página para ayudarnos a mantener el orden. Te agradecería que les echases un vistazo y las tengas en cuenta, además, ¡¡son ciertamente divertidas!! ¡¡Nos vemos por el pasillo!!</h2>
     <div class="image-grid">
       <img src="convivencia1.jpeg" alt="Norma 1">
       <img src="convivencia2.jpeg" alt="Norma 2">
@@ -166,4 +155,5 @@
     </script>
   </div>
 </body>
+</html>
 </html>
