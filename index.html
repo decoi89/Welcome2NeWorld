@@ -5,24 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome2NeWorld</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background-color: #f4f7f6; color: #333; }
-        .container { max-width: 600px; margin: 0 auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        h1 { color: #2c3e50; text-align: center; font-size: 24px; margin-bottom: 20px; }
-        h2 { color: #16a085; border-bottom: 2px solid #16a085; padding-bottom: 5px; font-size: 18px; margin-top: 25px; }
-        p { line-height: 1.6; font-size: 15px; }
-        .btn { display: block; width: 100%; max-width: 250px; margin: 10px auto; padding: 12px; text-align: center; background-color: #3498db; color: white; text-decoration: none; font-weight: bold; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); transition: 0.3s; }
+        /* RESTAURADOS TUS ESTILOS ORIGINALES */
+        body { 
+            margin: 0; 
+            padding: 0; 
+            font-family: Arial, sans-serif; 
+            color: white; 
+            text-align: center; 
+            background: linear-gradient(to bottom, #808080, #000000, #333333); 
+            min-height: 100vh;
+        }
+        .container { 
+            background-color: rgba(0, 0, 0, 0.6); 
+            margin: 0 auto; 
+            max-width: 700px; 
+            padding: 30px; 
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+        h1 { font-size: 28px; margin-bottom: 20px; color: white; }
+        h2 { font-size: 20px; margin-top: 30px; color: white; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 5px; }
+        p { line-height: 1.6; font-size: 16px; }
+        
+        /* BOTONES CON TUS ESTILOS */
+        .btn { display: block; width: 100%; max-width: 250px; margin: 15px auto; padding: 12px; text-align: center; color: white; text-decoration: none; font-weight: bold; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.4); transition: 0.3s; }
         .btn-wifi { background-color: #27ae60; }
         .btn-app { background-color: #2980b9; }
-        .btn-contract { background-color: #e67e22; opacity: 0.4; pointer-events: none; max-width: 300px; }
-        .btn-contract.active { opacity: 1; pointer-events: auto; cursor: pointer; box-shadow: 0 4px 8px rgba(230,126,34,0.4); }
-        ul { padding-left: 20px; }
-        li { margin-bottom: 12px; line-height: 1.5; font-size: 15px; }
-        .legal-box { background-color: #fce4d6; border-left: 5px solid #e67e22; padding: 15px; margin: 25px 0; border-radius: 4px; }
-        .checkbox-container { display: flex; align-items: flex-start; margin-top: 10px; cursor: pointer; }
-        .checkbox-container input { margin-right: 10px; margin-top: 4px; transform: scale(1.2); }
-        .funny-images { text-align: center; margin-top: 20px; font-style: italic; color: #7f8c8d; }
+        
+        /* BOTÓN CONTRATO INTERACTIVO */
+        .btn-contract { background-color: #e67e22; opacity: 0.3; pointer-events: none; max-width: 300px; }
+        .btn-contract.active { opacity: 1; pointer-events: auto; cursor: pointer; }
+
+        /* CAJA DE NOTA LEGAL COMBINADA CON TU DISEÑO */
+        .legal-box { background-color: rgba(230, 126, 34, 0.2); border: 1px solid #e67e22; padding: 15px; margin: 25px 0; border-radius: 4px; text-align: left; }
+        .checkbox-container { display: flex; align-items: flex-start; margin-top: 15px; cursor: pointer; color: white; }
+        .checkbox-container input { margin-right: 12px; margin-top: 4px; transform: scale(1.3); }
+        
+        /* TUS IMÁGENES DE CONVIVENCIA */
+        .normas-img { max-width: 100%; height: auto; margin: 15px 0; border-radius: 4px; display: block; margin-left: auto; margin-right: auto; }
+
         /* SECCIÓN OCULTA INICIALMENTE */
-        #secretAccessSection { display: none; margin-top: 30px; padding-top: 10px; border-top: 3px dashed #16a085; }
+        #secretAccessSection { display: none; margin-top: 30px; padding-top: 20px; border-top: 2px dashed rgba(255,255,255,0.3); }
     </style>
 </head>
 <body>
@@ -32,25 +55,26 @@
     <h1>Welcome2NeWorld</h1>
     <p>¡Bienvenid@ a NeWorld! Estamos encantados de tenerte aquí. Para poder iniciar tu estancia y tramitar tu alta en la vivienda, es necesario completar el proceso obligatorio de revisión de normas y formalización del alquiler.</p>
 
-    <!-- 2. NORMAS DE CONVIVENCIA OBLIGATORIAS -->
+    <!-- 2. TUS NORMAS DE CONVIVENCIA (REDACTA AQUÍ TUS PUNTOS) -->
     <h2>⚠️ Paso 1: Normas de Convivencia, Higiene y Seguridad</h2>
-    <p>Para procurar una convivencia excelente, mantener el orden y garantizar la seguridad de todos los habitantes del inmueble, es de obligado cumplimiento el estricto respeto a las siguientes directrices esenciales de la casa:</p>
+    <p>Lee atentamente las normas de funcionamiento y mantenimiento de las zonas comunes del piso antes de proceder:</p>
     
-    <ul>
-        <li><strong>🔒 Seguridad del Hogar:</strong> La puerta de acceso principal de la calle debe cerrarse completamente con llave en cada entrada y salida. Queda estrictamente prohibido dejarla abierta o entornada de madrugada.</li>
-        <li><strong>🗑 /> Gestión Sanitaria de Basuras:</strong> Queda prohibido acumular bolsas de residuos orgánicos en descomposición. Deben vaciarse diariamente en los contenedores de la calle usando tu tarjeta NFC.</li>
-        <li><strong>🍽 /> Higiene de Cocina:</strong> Los utensilios, cubiertos y platos deben lavarse, secarse y guardarse en sus armarios inmediatamente después de ser usados.</li>
-        <li><strong>🧼 Limpieza de Electrodomésticos:</strong> El interior del microondas común debe mantenerse libre de restos de materia orgánica e incrustaciones tras cada uso.</li>
-        <li><strong>🚭 Espacio Libre de Humo:</strong> Está terminantemente prohibido fumar en cualquier estancia de la casa, incluidas las habitaciones privadas.</li>
-    </ul>
+    <!-- Aquí puedes modificar los textos como quieras -->
+    <p style="text-align: left; padding-left: 20px;">
+        • Uso e higiene estricta de las zonas comunes y electrodomésticos.<br>
+        • Gestión diaria de residuos y basuras en los contenedores exteriores.<br>
+        • Protocolos obligatorios de cierre de seguridad de la puerta principal.<br>
+        • Espacio libre de humos en todo el inmueble.
+    </p>
 
-    <div class="funny-images">
-        <p>¡Echa un vistazo a las imágenes divertidas que tienes al final de la página para recordar estas pautas! 😊 Nos vemos por el pasillo.</p>
-    </div>
+    <!-- RESTAURADAS TUS TRES IMÁGENES ORIGINALES -->
+    <img src="convivencia1.jpeg" alt="Normas 1" class="normas-img">
+    <img src="convivencia2.jpeg" alt="Normas 2" class="normas-img">
+    <img src="convivencia3.jpeg" alt="Normas 3" class="normas-img">
 
-    <!-- 3. EMBUDO LEGAL: NOTA CONTRACTUAL Y CASILLA DE VERIFICACIÓN -->
+    <!-- 3. EMBUDO LEGAL: CASILLA DE VERIFICACIÓN -->
     <div class="legal-box">
-        <p><strong>📝 NOTA CONTRACTUAL VINCULANTE:</strong> Para poder acceder a la firma y creación del contrato de arrendamiento, se deben haber leído y aceptado las normas aquí expuestas. Estas normas forman parte integrante y obligatoria del contrato de alquiler. Su no aceptación o la falta de respeto a las mismas dará derecho automático a la cancelación y rescisión inmediata del contrato por parte del arrendador.</p>
+        <p><strong>📝 NOTA CONTRACTUAL:</strong> Para poder acceder a la firma y creación del contrato de arrendamiento, se deben haber leído y aceptado las normas aquí expuestas. Estas normas forman parte integrante y obligatoria del contrato de alquiler. Su no aceptación o la falta de respeto a las mismas dará derecho automático a la cancelación y rescisión inmediata del contrato por parte del arrendador.</p>
         
         <label class="checkbox-container">
             <input type="checkbox" id="acceptNorms" onchange="toggleContractButton()">
@@ -60,19 +84,18 @@
 
     <!-- 4. ACCESO AL CONTRATO DIGITAL (BLOQUEADO HASTA ACEPTAR NORMAS) -->
     <h2>📄 Paso 2: Formalización del Alquiler</h2>
-    <p>Una vez aceptadas las normas de convivencia del apartado anterior, se desbloqueará el acceso oficial para rellenar tus datos y firmar digitalmente tu contrato con validez jurídica.</p>
+    <p>Una vez aceptadas las normas, se desbloqueará el acceso oficial para rellenar tus datos y firmar digitalmente tu contrato.</p>
     
     <a href="TU_ENLACE_DE_SIGNATURIT_O_DOCUSIGN_AQUÍ" id="contractBtn" target="_blank" onclick="unlockSecretSection()" class="btn btn-contract">📄 Leer y Firmar Contrato Digital</a>
 
     <!-- 5. SECCIÓN BLOQUEADA: SOLO APARECE TRAS CLICAR EN FIRMAR CONTRATO -->
     <div id="secretAccessSection">
         <h2>📶 Paso 3: Conexiones y Llaves Digitales Desbloqueadas</h2>
-        <p style="color: #27ae60; font-weight: bold;">¡Proceso contractual iniciado! A continuación tienes tus accesos de seguridad y conectividad oficiales:</p>
-        <p>Escanea el código QR de configuración que verás al pulsar el botón de abajo para conectarte a la red WiFi automáticamente. Después, descarga las aplicaciones necesarias para abrir las puertas principales y la de tu habitación:</p>
+        <p style="color: #2ecc71; font-weight: bold;">¡Proceso contractual iniciado! Aquí tienes tus accesos:</p>
         
         <a href="#AQUÍ_TU_ENLACE_O_QR_AL_WIFI" class="btn btn-wifi">🔗 Conectarse al Wifi Ahora</a>
-        <a href="https://google.com" class="btn btn-app" target="_blank">📱 Tuya App / Int_egra App (Android)</a>
-        <a href="https://apple.com" class="btn btn-app" target="_blank">🍏 Tuya App / Int_egra App (iOS)</a>
+        <a href="https://google.com" class="btn btn-app" target="_blank">📱 Descargar Apps Puertas (Android)</a>
+        <a href="https://apple.com" class="btn btn-app" target="_blank">🍏 Descargar Apps Puertas (iOS)</a>
     </div>
 </div>
 
@@ -85,15 +108,12 @@
             button.classList.add("active");
         } else {
             button.classList.remove("active");
-            // Si desmarcan la casilla, se vuelve a ocultar la sección secreta por seguridad
             document.getElementById("secretAccessSection").style.display = "none";
         }
     }
 
     function unlockSecretSection() {
-        // Al hacer clic en el botón de firmar, se despliega visualmente la sección de Wifi y Apps
         document.getElementById("secretAccessSection").style.display = "block";
-        // Desplaza la pantalla suavemente hacia abajo para que el inquilino vea los nuevos botones
         setTimeout(function() {
             document.getElementById("secretAccessSection").scrollIntoView({ behavior: 'smooth' });
         }, 300);
