@@ -5,10 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NeWorld Apps</title>
   <style>
-    .btn.clicked {
-      background-color: #28a745 !important;
-      transition: background-color 0.3s ease;
-    }
     body {
       margin: 0;
       padding: 0;
@@ -29,14 +25,6 @@
       width: 300px !important;
       height: auto;
     }
-    .qr {
-      margin: 20px 0;
-      width: 150px;
-      height: auto;
-      cursor: pointer;
-      border: 2px solid white;
-      border-radius: 10px;
-    }
     .buttons {
       margin-top: 30px;
     }
@@ -53,33 +41,10 @@
       font-weight: bold;
       cursor: pointer;
     }
-    .image-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-      margin: 40px auto;
-      max-width: 900px;
-      padding: 0 20px;
-    }
-    .image-grid img {
-      width: 100%;
-      border-radius: 10px;
-      object-fit: cover;
-    }
     .header-img {
       width: 100%;
       height: auto;
       display: block;
-    }
-    
-    /* NUEVOS ESTILOS INTEGRADOS EXCLUSIVOS PARA EL EMBUDO LEGAL */
-    .legal-box {
-      background-color: rgba(230, 126, 34, 0.15);
-      border: 1px solid #e67e22;
-      padding: 15px;
-      margin: 30px 0;
-      border-radius: 8px;
-      text-align: left;
     }
     .checkbox-container {
       display: flex;
@@ -102,72 +67,6 @@
       opacity: 1;
       pointer-events: auto;
     }
-    
-    /* ELEMENTO PARA OCULTAR LA INFORMACIÓN PRIVADA INICIALMENTE */
-    #private-access-section {
-      display: none;
-      margin-top: 20px;
-      padding-top: 10px;
-    }
-  </style>
-  <script>
-    function isIOS() {
-      return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-    }
-    function isAndroid() {
-      return /Android/.test(navigator.userAgent);
-    }
-    window.onload = function () {
-      const tuyaBtn = document.getElementById('tuya-button');
-      const integraBtn = document.getElementById('integra-button');
-      const qrContainer = document.getElementById('qr-button-container');
-
-      if (isIOS()) {
-        tuyaBtn.href = "https://apps.apple.com/es/app/tuya-smart/id1034649547";
-        integraBtn.href = "https://apps.apple.com/es/app/int-egra/id1556238682";
-        qrContainer.innerHTML = `<p style="color: #ccc;">Abre la app de cámara de tu iPhone para escanear el QR.</p>`;
-      } else if (isAndroid()) {
-        tuyaBtn.href = "https://play.google.com/store/apps/details?id=com.tuya.smart&hl=es_419";
-        integraBtn.href = "https://play.google.com/store/apps/details?id=integra.ayr.v2.beta&hl=es_419";
-        qrContainer.innerHTML = `
-          <a class="btn" href="https://play.google.com/store/apps/details?id=com.qrtech.qrcodereader.barcodescanner.qrscanner.qrcodescanner&hl=es" target="_blank">Abrir o descargar escáner QR</a>
-        `;
-      } else {
-        qrContainer.innerHTML = `<p style="color: #888;">No disponible para este dispositivo</p>`;
-      }
-
-      tuyaBtn.addEventListener('click', function () {
-        this.classList.add('clicked');
-        this.textContent = 'Abriendo...';
-      });
-      integraBtn.addEventListener('click', function () {
-        this.classList.add('clicked');
-        this.textContent = 'Abriendo...';
-      });
-    };
-
-    /* NUEVAS FUNCIONES JAVASCRIPT CONTROLADORAS DEL EMBUDO DIGITAL */
-    function toggleContractButton() {
-      const checkbox = document.getElementById("acceptNorms");
-      const button = document.getElementById("contractBtn");
-      
-      if (checkbox.checked) {
-        button.classList.add("active");
-      } else {
-        button.classList.remove("active");
-        document.getElementById("private-access-section").style.display = "none";
-      }
-    }
-
-    function unlockPrivateSection() {
-      // Despliega visualmente la sección oculta del Wifi y las Apps
-      document.getElementById("private-access-section").style.display = "block";
-      // Desplaza la pantalla suavemente hacia la zona desbloqueada
-      setTimeout(function() {
-        document.getElementById("private-access-section").scrollIntoView({ behavior: 'smooth' });
-      }, 300);
-    }
-  </script>
 </head>
 <body>
   <div class="header">
