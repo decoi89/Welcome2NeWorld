@@ -174,80 +174,25 @@
     <img src="background.png" alt="cabecera" class="header-img">
   </div>
   <div class="container">
-    <h2>Bienvenid@ a NeWorld. Antes de nada, me alegra tenerte aquí y que estés leyendo esto; significa que ambos tenemos el interés de hacer de esta experiencia un buen proyecto de convivencia.</h2>
-    <img src="icon.png" alt="icono" class="robot-tecnico">
-    
-    <p><em>Con el fin de procurar una buena convivencia, encontrarás algunas típicas imágenes al final de la página para ayudarnos a mantener el orden. Te agradecería que les echases un vistazo y las tengas en cuenta, además, ¡¡son ciertamente divertidas!! ¡¡Nos vemos por el pasillo!!</em></p>
-    
-    <div class="image-grid">
-      <img src="convivencia1.jpeg" alt="Norma 1">
-      <img src="convivencia2.jpeg" alt="Norma 2">
-      <img src="convivencia3.jpeg" alt="Norma 3">
-    </div>
-
-    <!-- CAJA DE CONTROL LEGAL INTEGRADA BAJO LAS IMÁGENES -->
-    <div class="legal-box">
-      <p style="margin: 0; font-size: 15px; line-height: 1.5;">
-        <strong>📝 NOTA:</strong> Para poder acceder a la firma y creación del contrato de arrendamiento se deben haber leído y aceptado las normas aquí expuestas. Estas normas forman parte del contrato y su no aceptación o no respetarlas dará derecho a la cancelación del contrato de forma inmediata por parte del arrendador.
-      </p>
-      <label class="checkbox-container">
-        <input type="checkbox" id="acceptNorms" onchange="toggleContractButton()">
-        <span style="font-size: 14px;"><strong>He leído, comprendo y acepto las normas de convivencia aquí expuestas como parte vinculante de mi contrato.</strong></span>
-      </label>
-    </div>
-
-    <!-- BOTÓN DEL CONTRATO DIGITAL (REDIRECCIONAMIENTO) -->
-    <a href="TU_ENLACE_DE_DOCUSIGN_O_SIGNATURIT_AQUÍ" id="contractBtn" target="_blank" onclick="unlockPrivateSection()" class="btn btn-contract">
-      📄 Leer y Firmar Contrato Digital
-    </a>
-
-    <!-- SECCIÓN TOTALMENTE OCULTA: SOLO SE ACTIVA AL CLICAR EN EL BOTÓN DEL CONTRATO -->
-    <div id="private-access-section">
-      <h2 style="color: #28a745; margin-top: 30px;">📶 Conexiones y Llaves Digitales Desbloqueadas</h2>
-      <h2>Descarga y/o escanea el QR con la aplicación nativa de tu dispositivo o pulsa sobre el botón que hay justo debajo del QR para abrir el lector de QR directamente.</h2>
-      
-      <div style="margin-bottom: 20px;">
-        <img src="wifi-qr.png" class="qr" id="qr-img" alt="WiFi QR" />
-        <div id="qr-button-container"></div>
-      </div>
-
-      <h2>
-        Una vez estés conectad@, pulsa en los botones que hay a continuación para redirigirte a la descarga de las aplicaciones con las que podrás, entre otras funciones, abrir las puertas.
-      </h2>
-      <div class="buttons">
-        <a id="tuya-button" class="btn" href="#">Tuya App</a>
-        <a id="integra-button" class="btn" href="#">Int_egra App</a>
-      </div>
-    </div>
-
-    <!-- LIGHTBOX ORIGINAL INTACTO -->
-    <div id="lightbox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center;">
-      <img id="lightbox-img" src="" style="max-width:90%; max-height:90%; border-radius:10px;" />
-    </div>
-    
-    <script>
-      const images = document.querySelectorAll('.image-grid img');
-      const lightbox = document.getElementById('lightbox');
-      const lightboxImg = document.getElementById('lightbox-img');
-      const qrImg = document.getElementById('qr-img');
-
-      images.forEach(img => {
-        img.addEventListener('click', () => {
-          lightboxImg.src = img.src;
-          lightbox.style.display = 'flex';
-        });
-      });
-
-      qrImg.addEventListener('click', () => {
-        lightboxImg.src = qrImg.src;
-        lightbox.style.display = 'flex';
-      });
-
-      lightbox.addEventListener('click', () => {
-        lightbox.style.display = 'none';
-        lightboxImg.src = '';
-      });
-    </script>
-  </div>
+        <!-- 2. Frase de bienvenida -->
+        <h2>Bienvenid@ a NeWorld. Antes de nada, me alegra tenerte aquí y que estés leyendo esto; significa que ambos tenemos el interés de hacer de esta experiencia un buen proyecto de convivencia.</h2>
+        
+        <!-- 3. Imagen del Robot -->
+        <img src="icon.png" alt="Icono" class="robot-tecnico">
+        
+        <!-- 5. Botón NORMAS -->
+        <div style="text-align: center; margin-bottom: 20px;">
+            <a href="./Normas/index.html" style="
+                background-color: #ff0000; 
+                color: #ffffff; 
+                font-weight: bold; 
+                text-decoration: none; 
+                padding: 12px 30px; 
+                border-radius: 5px; 
+                display: inline-block;
+            ">
+                Ver Normas de Convivencia →
+            </a>
+        </div>
+    </div> <!-- Cierre del container -->
 </body>
-</html>
