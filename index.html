@@ -103,6 +103,71 @@
       pointer-events: auto;
     }
     
+    /* ELEMENTO PARA OCULTAR LA INFORMACIÓN PRIVADA INICIALMENTE */
+    #private-access-section {
+      display: none;
+      margin-top: 20px;
+      padding-top: 10px;
+    }
+  </style>
+  <script>
+    function isIOS() {
+      return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    }
+    function isAndroid() {
+      return /Android/.test(navigator.userAgent);
+    }
+    window.onload = function () {
+      const tuyaBtn = document.getElementById('tuya-button');
+      const integraBtn = document.getElementById('integra-button');
+      const qrContainer = document.getElementById('qr-button-container');
+
+      if (isIOS()) {
+        tuyaBtn.href = "https://apps.apple.com/es/app/tuya-smart/id1034649547";
+        integraBtn.href = "https://apps.apple.com/es/app/int-egra/id1556238682";
+        qrContainer.innerHTML = `<p style="color: #ccc;">Abre la app de cámara de tu iPhone para escanear el QR.</p>`;
+      } else if (isAndroid()) {
+        tuyaBtn.href = "https://play.google.com/store/apps/details?id=com.tuya.smart&hl=es_419";
+        integraBtn.href = "https://play.google.com/store/apps/details?id=integra.ayr.v2.beta&hl=es_419";
+        qrContainer.innerHTML = `
+          <a class="btn" href="https://play.google.com/store/apps/details?id=com.qrtech.qrcodereader.barcodescanner.qrscanner.qrcodescanner&hl=es" target="_blank">Abrir o descargar escáner QR</a>
+        `;
+      } else {
+        qrContainer.innerHTML = `<p style="color: #888;">No disponible para este dispositivo</p>`;
+      }
+
+      tuyaBtn.addEventListener('click', function () {
+        this.classList.add('clicked');
+        this.textContent = 'Abriendo...';
+      });
+      integraBtn.addEventListener('click', function () {
+        this.classList.add('clicked');
+        this.textContent = 'Abriendo...';
+      });
+    };
+
+    /* NUEVAS FUNCIONES JAVASCRIPT CONTROLADORAS DEL EMBUDO DIGITAL */
+    function toggleContractButton() {
+      const checkbox = document.getElementById("acceptNorms");
+      const button = document.getElementById("contractBtn");
+      
+      if (checkbox.checked) {
+        button.classList.add("active");
+      } else {
+        button.classList.remove("active");
+        document.getElementById("private-access-section").style.display = "none";
+      }
+    }
+
+    function unlockPrivateSection() {
+      // Despliega visualmente la sección oculta del Wifi y las Apps
+      document.getElementById("private-access-section").style.display = "block";
+      // Desplaza la pantalla suavemente hacia la zona desbloqueada
+      setTimeout(function() {
+        document.getElementById("private-access-section").scrollIntoView({ behavior: 'smooth' });
+      }, 300);
+    }
+  </script>
 </head>
 <body>
   <div class="header">
