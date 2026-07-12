@@ -1,1 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeWorld - Normas</title>
+  <style>
+    /* Calco exacto de tus estilos base e identidad de color */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+      background: linear-gradient(to bottom, #000000, #333333);
+    }
+    .header {
+      width: 100%;
+      height: min(300px, 25vw); 
+      overflow: hidden;
+      position: relative;
+      background-color: #000000;
+    }
+    .header-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 45%;
+      display: block;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+    }
+    .container {
+      background-color: rgba(0, 0, 0, 0.6);
+      margin: 0 auto;
+      max-width: 700px;
+      padding: 30px 20px;
+      border-radius: 10px;
+      margin-top: 50px;
+    }
+    img.robot-tecnico {
+      width: 300px !important;
+      height: auto;
+    }
+    
+    /* Adaptación del bloque legal y lista de pautas */
+    .legal-notice {
+      background-color: rgba(255, 0, 0, 0.15);
+      border-left: 4px solid #ff0000;
+      padding: 15px;
+      border-radius: 6px;
+      margin-bottom: 25px;
+      text-align: left;
+    }
+    .legal-notice strong {
+      color: #ff0000;
+    }
+    .rules-list {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 30px;
+      padding: 0 10px;
+    }
+    .rules-list li {
+      position: relative;
+      padding-left: 25px;
+      margin-bottom: 12px;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    .rules-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #ff0000;
+      font-weight: bold;
+    }
 
+    /* Contenedor adaptivo para el Checkbox */
+    .acceptance-box {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 25px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      cursor: pointer;
+      text-align: left;
+    }
+    .acceptance-box input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: #ff0000;
+      cursor: pointer;
+      margin-top: 2px;
+    }
+    .acceptance-label {
+      font-size: 14px;
+      color: #e5e7eb;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    /* Botón dinámico interactivo */
+    .btn {
+      display: inline-block;
+      padding: 15px 25px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.1s ease;
+      width: auto;
+    }
+    .btn-enabled {
+      background-color: #ff0000;
+      color: white;
+    }
+    .btn-enabled:active {
+      background-color: #d1d5db !important; /* Gris claro al pulsar */
+    }
+    .btn-disabled {
+      background-color: #4b5563; /* Gris apagado cuando está bloqueado */
+      color: #9ca3af;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabecera idéntica usando tu misma imagen subiendo un nivel de carpeta -->
+  <div class="header">
+    <img src="../background.png" alt="cabecera" class="header-img">
+  </div>
+  
+  <div class="container">
+    
+    <!-- Aviso Vinculación Contractual -->
+    <div class="legal-notice">
+      <strong>AVISO LEGAL IMPORTANTE:</strong> La aceptación de las siguientes normas tiene carácter vinculante y contractual. Su incumplimiento de forma reiterada facultará a la propiedad para rescindir el contrato de arrendamiento.
+    </div>
+
+    <!-- Imagen del Robot Blanco apuntando al archivo real corregido -->
+    <img src="../robot tecnico.png" alt="Robot técnico de NeWorld" class="robot-tecnico">
+
+    <!-- Listado estructurado de normas -->
+    <ul class="rules-list">
+      <li>Respetar estrictamente el descanso de los convivientes y vecinos de 22:00 a 08:00 horas.</li>
+      <li>Mantener la limpieza e higiene diaria de las zonas comunes tras cada uso personal.</li>
+      <li>Prohibido el subarriendo de la estancia o el alojamiento permanente de personas ajenas.</li>
+      <li>Hacer un uso responsable, sostenible y eficiente de los suministros compartidos.</li>
+      <li>Cuidar el mobiliario, instalaciones y electrodomésticos puestos a disposición.</li>
+    </ul>
+
+    <!-- Formulario que conecta directamente con tu paso de Google Forms -->
+    <form id="rulesForm" action="TU_ENLACE_DE_GOOGLE_FORMS_AQUI" method="GET">
+      
+      <!-- Zona de Checkbox interactiva -->
+      <div class="acceptance-box" onclick="toggleCheckbox()">
+        <input type="checkbox" id="acceptRules" name="accept" required onchange="manageButtonState()">
+        <label for="acceptRules" class="acceptance-label">
+          He leído con atención, comprendo las normas de convivencia de NeWorld y acepto su plena vinculación contractual con mi estancia.
+        </label>
+      </div>
+
+      <!-- Botón de acción inicialmente bloqueado -->
+      <div style="text-align: center; margin-bottom: 20px; margin-top: 30px;">
+        <button type="submit" id="submitBtn" class="btn btn-disabled" disabled>
+          Proceder al Registro →
+        </button>
+      </div>
+    </form>
+
+  </div>
+
+  <script>
+    // Control de estados bloqueado/activo para el botón rojo
+    function manageButtonState() {
+      const checkbox = document.getElementById('acceptRules');
+      const button = document.getElementById('submitBtn');
+      
+      if(checkbox.checked) {
+        button.disabled = false;
+        button.classList.remove('btn-disabled');
+        button.classList.add('btn-enabled');
+      } else {
+        button.disabled = true;
+        button.classList.remove('btn-enabled');
+        button.classList.add('btn-disabled');
+      }
+    }
+
+    // Permite marcar la casilla haciendo clic en cualquier parte de su recuadro
+    function toggleCheckbox() {
+      const checkbox = document.getElementById('acceptRules');
+      if (event.target.tagName !== 'INPUT') {
+        checkbox.checked = !checkbox.checked;
+        manageButtonState();
+      }
+    }
+  </script>
+</body>
+</html>
