@@ -71,7 +71,54 @@
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
+  <script>
+    function openLightbox(clickedImg) {
+      // 1. Encontrar todas las fotos de la misma sección
+      const section = clickedImg.closest('.inventory-section');
+      const allImgs = section.querySelectorAll('.photo-card img');
+      const lightboxSlider = document.getElementById('lightbox-slider');
+      
+      // 2. Limpiar el slider anterior
+      lightboxSlider.innerHTML = '';
+      
+      // 3. Clonar las fotos a tamaño completo dentro del Lightbox
+      let targetIndex = 0;
+      allImgs.forEach((img, index) => {
+        if (img.src === clickedImg.src) {
+          targetIndex = index;
+        }
+        const slide = document.createElement('div');
+        slide.className = 'lightbox-slide';
+        
+        const newImg = document.createElement('img');
+        newImg.src = img.src;
+        newImg.alt = img.alt;
+        
+        slide.appendChild(newImg);
+        lightboxSlider.appendChild(slide);
+      });
+      
+      // 4. Mostrar el Lightbox
+      const lightbox = document.getElementById('lightbox');
+      lightbox.style.display = 'flex';
+      
+      // 5. Mover el scroll directamente a la foto pulsada
+      const slideWidth = lightboxSlider.clientWidth;
+      lightboxSlider.scrollLeft = targetIndex * slideWidth;
+    }
 
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+    }
+    
+    // Asignar la función de clic de forma automática a todas las fotos del piso
+    document.querySelectorAll('.photo-card img').forEach(img => {
+      img.addEventListener('click', function() {
+        openLightbox(this);
+      });
+    });
+  </script>
+    
     /* CONTENEDOR DESLIZANTE HORIZONTAL (Carrusel nativo) */
     .slider-container {
       display: flex;
