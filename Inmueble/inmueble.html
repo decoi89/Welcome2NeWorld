@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NeWorld - Inmueble</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+      background: linear-gradient(to bottom, #000000, #333333);
+    }
+    .header {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      background-color: #000000;
+    }
+    .header-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+    .container {
+      background-color: rgba(0, 0, 0, 0.6);
+      margin: 0 auto;
+      max-width: 600px;
+      padding: 40px 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+      margin-bottom: 50px;
+    }
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+    .description {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 35px;
+      text-align: justify;
+    }
+
+    /* Caja de aviso legal idéntica a la de normas.html */
+    .legal-notice {
+      background-color: rgba(255, 0, 0, 0.05);
+      border: 1px solid #ff0000;
+      padding: 15px;
+      border-radius: 5px;
+      text-align: justify;
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 25px;
+    }
+
+    /* Contenedor del checkbox interactivo */
+    .checkbox-container {
+      margin: 25px 0 35px 0;
+      padding: 15px;
+      background-color: rgba(255, 255, 255, 0.03);
+      border-radius: 6px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      text-align: left;
+    }
+    .checkbox-container input[type="checkbox"] {
+      margin-top: 4px;
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+    .checkbox-label {
+      font-size: 14px;
+      line-height: 1.4;
+      color: #e5e7eb;
+      cursor: pointer;
+    }
+
+    /* Estilos de los botones del Inmueble */
+    .btn {
+      display: inline-block;
+      background-color: #ff0000;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-size: 16px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-bottom: 15px;
+      width: 80%;
+      box-sizing: border-box;
+      transition: background-color 0.1s ease, opacity 0.3s ease;
+    }
+    /* Clase para cuando los botones están bloqueados */
+    .btn.disabled {
+      background-color: #555555 !important;
+      color: #aaaaaa !important;
+      cursor: not-allowed;
+      pointer-events: none; /* Impide que hagan clic */
+      opacity: 0.6;
+    }
+    .btn:not(.disabled):active {
+      background-color: #d1d5db;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabecera interactiva que regresa al inicio -->
+  <div class="header">
+    <a href="../index.html">
+      <img src="../background.png" alt="cabecera NeWorld" class="header-img">
+    </a>
+  </div>
+
+  <div class="container">
+    <h1 class="title">Inspección del Inmueble</h1>
+    
+    <p class="description">
+      Bienvenido al panel de control del inmueble. Antes de proceder a la firma, el sistema requiere que realices una verificación del estado físico de la vivienda.
+    </p>
+
+    <!-- Caja de aviso legal -->
+    <div class="legal-notice">
+      <strong>AVISO REQUERIDO:</strong> Para habilitar el acceso a las carpetas técnicas y reportajes fotográficos del piso, debes confirmar la aceptación de los términos de inventario contractuales descritos a continuación.
+    </div>
+
+    <!-- El checkbox interactivo con tu frase exacta -->
+    <div class="checkbox-container">
+      <input type="checkbox" id="accept-inventory" onchange="toggleButtons()">
+      <label for="accept-inventory" class="checkbox-label">
+        Entiendo y acepto que las fotografías en las siguientes páginas, tanto de las zonas comunes como de las habitaciones, forman parte del anexo del contrato "Inventario Digital Fotográfico".
+      </label>
+    </div>
+
+    <!-- BOTONES DE NAVEGACIÓN (Empiezan bloqueados con la clase 'disabled') -->
+    <a href="../comunes.html" id="btn-comunes" class="btn disabled">
+        Ver Zonas Comunes →
+    </a>
+
+    <a href="../Habitaciones/h2.html" id="btn-h2" class="btn disabled">
+        Ver Habitación 2 →
+    </a>
+
+    <a href="../Habitaciones/h3.html" id="btn-h3" class="btn disabled">
+        Ver Habitación 3 →
+    </a>
+
+  </div>
+
+  <!-- Programación para desbloquear los botones al marcar la casilla -->
+  <script>
+    function toggleButtons() {
+      var checkBox = document.getElementById("accept-inventory");
+      var btnComunes = document.getElementById("btn-comunes");
+      var btnH2 = document.getElementById("btn-h2");
+      var btnH3 = document.getElementById("btn-h3");
+      
+      if (checkBox.checked == true) {
+        // Si está marcado, quitamos la restricción y se vuelven rojos
+        btnComunes.classList.remove("disabled");
+        btnH2.classList.remove("disabled");
+        btnH3.classList.remove("disabled");
+      } else {
+        // Si se desmarca, se vuelven a bloquear en gris
+        btnComunes.classList.add("disabled");
+        btnH2.classList.add("disabled");
+        btnH3.classList.add("disabled");
+      }
+    }
+  </script>
+
+</body>
+</html>
