@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeWorld - Zonas Comunes</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+      background: linear-gradient(to bottom, #000000, #333333);
+    }
+    .header {
+      width: 100%;
+      height: min(300px, 25vw); 
+      overflow: hidden;
+      position: relative;
+      background-color: #000000;
+    }
+    .header-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 45%;
+      display: block;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+    }
+    .container {
+      background-color: rgba(0, 0, 0, 0.6);
+      margin: 0 auto;
+      max-width: 700px;
+      padding: 30px 20px;
+      border-radius: 10px;
+      margin-top: 50px;
+    }
+    h2 {
+      color: #ff0000;
+      margin-bottom: 25px;
+      text-transform: uppercase;
+      font-size: 22px;
+      letter-spacing: 1px;
+    }
+    .legal-notice {
+      background-color: rgba(255, 0, 0, 0.1);
+      border-left: 5px solid #ff0000;
+      padding: 15px;
+      border-radius: 4px;
+      text-align: justify;
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 35px;
+    }
+    .inventory-section {
+      margin-bottom: 40px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 30px;
+    }
+    .inventory-section:last-of-type {
+      border-bottom: none;
+    }
+    .section-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    /* Estilos para el Lightbox a pantalla completa */
+    .lightbox-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.95);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+    .lightbox-slider {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+    }
+    .lightbox-slider::-webkit-scrollbar {
+      display: none;
+    }
+    .lightbox-slide {
+      flex: 0 0 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      scroll-snap-align: start;
+    }
+    .lightbox-slide img {
+      max-width: 95%;
+      max-height: 85%;
+      object-fit: contain;
+      border-radius: 4px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      color: white;
+      font-size: 35px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 1010;
+      user-select: none;
+    }
+    .photo-card img {
+      cursor: zoom-in;
+    }
+    /* CONTENEDOR DESLIZANTE HORIZONTAL (Carrusel nativo) */
+    .slider-container {
+      display: flex;
+      gap: 15px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 15px;
+      margin-bottom: 25px;
+      /* Oculta la barra de scroll en Firefox */
+      scrollbar-width: none; 
+    }
+    /* Oculta la barra de scroll en Chrome, Safari y Edge */
+    .slider-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Caja de cada fotografía dentro del carrusel */
+    .photo-card {
+      flex: 0 0 280px; /* Ancho fijo de cada foto en el carrusel */
+      scroll-snap-align: start;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background-color: #111;
+      aspect-ratio: 4 / 3;
+    }
+    @media (min-width: 600px) {
+      .photo-card {
+        flex: 0 0 320px; /* Un pelín más grandes en pantallas medianas */
+      }
+    }
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .inventory-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .inventory-list li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 8px;
+      font-size: 15px;
+      color: #d1d5db;
+      line-height: 1.4;
+    }
+    .inventory-list li::before {
+      content: "▪";
+      position: absolute;
+      left: 0;
+      color: #ff0000;
+    }
+    .btn {
+      display: inline-block;
+      background-color: #ff0000;
+      color: white;
+      padding: 15px 25px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.1s ease;
+    }
+    .btn:active {
+      background-color: #d1d5db !important;
+      color: #ffffff !important;
+    }
+  </style>
+</head>
+<body>
+  <!-- 1. Cabecera enlazada al inicio (Subiendo un nivel) -->
+    <div class="header">
+    <a href="../index.html">
+      <img src="../background.png" alt="cabecera NeWorld" class="header-img">
+    </a>
+  </div>
+  <div class="container">
+    
+    <h2>Anexo Fotográfico: Habitación 2</h2>
+    
+    <div class="legal-notice">
+      <strong>INSPECCIÓN DE HABITACIÓN 2:</strong> Desliza horizontalmente las imágenes de cada sección para inspeccionar el reportaje fotográfico completo. Estos listados detallan el estado oficial de entrega de la habitación 2 del inmueble.
+    </div>
+
+    <!-- SECCIÓN 1: Habitacion 2 (Deslizable) -->
+    <div class="inventory-section">
+      <div class="section-title">🛌 Habitación 2.</div>
+      
+      <div class="slider-container">
+        <div class="photo-card"><img src="Hab200.jpg" alt="Hab 2"></div>
+        <div class="photo-card"><img src="Hab201.jpg" alt="Hab 2"></div>
+        <div class="photo-card"><img src="Hab202.jpg" alt="Hab 2"></div>
+        <div class="photo-card"><img src="Hab203.jpg" alt="Hab 2"></div>
+        <div class="photo-card"><img src="Hab204.jpg" alt="Hab 2"></div>
+        <div class="photo-card"><img src="HabArmario200.jpg" alt="Hab 2"></div>
+        <div class="photo-card"><img src="HabArmario201.jpg" alt="Hab 2"></div>
+        <div class="photo-card"><img src="HabArmario203.jpg" alt="Hab 2"></div>
+        <div class="photo-card"><img src="HabBalcon200.jpg" alt="Hab 2"></div>
+        <div class="photo-card"><img src="HabBalcon201.jpg" alt="Hab 2"></div>
+      </div>
+
+      <ul class="inventory-list">
+        <li>Cama canapé de matrimonio de 135x190 con cabecero.</li>
+        <li>Escritorio regulable en altura.</li>
+        <li>Smart TV de 43" con soporte de pared extensible.</li>
+        <li>Tira de iluminacion Led (TV).</li>
+        <li>Armario mopdular de tres puertas, con organizadores y cajas de almacenaje de armario.</li>
+        <li>Cesto de la ropa de colada</li>
+        <li>Salida a balcón</li>
+      </ul>
+    </div>
+
+    <!-- Zona de botones inferiores: Navegación del Embudo -->
+    <div style="margin-top: 40px; display: flex; flex-direction: column; gap: 15px; align-items: center; justify-content: center;">
+        
+        <!-- Botón de avance al paso final de Normas -->
+        <div style="text-align: center; margin-top: 30px;">
+        <a href="https://decoi89.github.io/Welcome2NeWorld/Normas/normas.html" class="btn">
+            Continuar a las Normas →
+        </a>
+
+        <!-- Botón de retorno al panel de Inmueble -->
+        <div style="text-align: center; margin-top: 30px;">
+        <a href="https://decoi89.github.io/Welcome2NeWorld/Inmueble/inmueble.html" class="btn">
+          ← Volver a Selección
+        </a>
+        
+    </div>
+
+    <!-- Capa del Lightbox para ampliación de imágenes -->
+  <div id="lightbox" class="lightbox-overlay">
+    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+    <div id="lightbox-slider" class="lightbox-slider"></div>
+  </div>
+
+  <script>
+    function openLightbox(clickedImg) {
+      const section = clickedImg.closest('.inventory-section');
+      const allImgs = section.querySelectorAll('.photo-card img');
+      const lightboxSlider = document.getElementById('lightbox-slider');
+      
+      lightboxSlider.innerHTML = '';
+      
+      let targetIndex = 0;
+      allImgs.forEach((img, index) => {
+        if (img.src === clickedImg.src) {
+          targetIndex = index;
+        }
+        const slide = document.createElement('div');
+        slide.className = 'lightbox-slide';
+        
+        const newImg = document.createElement('img');
+        newImg.src = img.src;
+        newImg.alt = img.alt;
+        
+        slide.appendChild(newImg);
+        lightboxSlider.appendChild(slide);
+      });
+      
+      const lightbox = document.getElementById('lightbox');
+      lightbox.style.display = 'flex';
+      
+      setTimeout(() => {
+        const slideWidth = lightboxSlider.clientWidth;
+        lightboxSlider.scrollLeft = targetIndex * slideWidth;
+      }, 50);
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+    }
+    
+    document.querySelectorAll('.photo-card img').forEach(img => {
+      img.addEventListener('click', function() {
+        openLightbox(this);
+      });
+    });
+  </script>
+</body>
+</html>
