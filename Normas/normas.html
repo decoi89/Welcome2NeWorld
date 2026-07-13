@@ -92,34 +92,19 @@
       color: #ff0000;
       font-weight: bold;
     }
-
     /* Contenedor adaptivo para el Checkbox */
-    .acceptance-box {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 15px;
-      border-radius: 8px;
-      margin-bottom: 25px;
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      cursor: pointer;
-      text-align: left;
-    }
-    .acceptance-box input[type="checkbox"] {
+    .checkbox-container input[type="checkbox"] {
+      margin-top: 4px;
       width: 18px;
       height: 18px;
-      accent-color: #ff0000;
       cursor: pointer;
-      margin-top: 2px;
     }
-    .acceptance-label {
+    .checkbox-label {
       font-size: 14px;
+      line-height: 1.4;
       color: #e5e7eb;
       cursor: pointer;
-      user-select: none;
     }
-
     /* Botón dinámico interactivo */
     .btn {
       display: inline-block;
@@ -185,9 +170,9 @@
     </div>
   
       <!-- Zona de Checkbox interactiva -->
-      <div class="acceptance-box" onclick="toggleCheckbox()">
-        <input type="checkbox" id="acceptRules" name="accept" required onchange="manageButtonState()">
-        <label for="acceptRules" class="acceptance-label">
+      <div class="checkbox-container" onclick="toggleCheckbox()">
+        <input type="checkbox" id="checkboxlabel" name="accept" required onchange="manageButtonState()">
+        <label for="acceptRules" class="checkbox-label">
           He leído con atención, comprendo las normas de convivencia de NeWorld y acepto su plena vinculación contractual con mi estancia.
         </label>
       </div>
