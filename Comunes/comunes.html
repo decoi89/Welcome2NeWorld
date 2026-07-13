@@ -13,17 +13,22 @@
       text-align: center;
       background: linear-gradient(to bottom, #000000, #333333);
     }
+    }
     .header {
       width: 100%;
+      height: min(300px, 25vw); 
       overflow: hidden;
       position: relative;
       background-color: #000000;
     }
     .header-img {
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 45%;
       display: block;
-      margin: 0 auto;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
     }
     .container {
       background-color: rgba(0, 0, 0, 0.6);
