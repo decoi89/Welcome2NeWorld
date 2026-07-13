@@ -71,54 +71,59 @@
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
-  <script>
-    function openLightbox(clickedImg) {
-      // 1. Encontrar todas las fotos de la misma sección
-      const section = clickedImg.closest('.inventory-section');
-      const allImgs = section.querySelectorAll('.photo-card img');
-      const lightboxSlider = document.getElementById('lightbox-slider');
-      
-      // 2. Limpiar el slider anterior
-      lightboxSlider.innerHTML = '';
-      
-      // 3. Clonar las fotos a tamaño completo dentro del Lightbox
-      let targetIndex = 0;
-      allImgs.forEach((img, index) => {
-        if (img.src === clickedImg.src) {
-          targetIndex = index;
-        }
-        const slide = document.createElement('div');
-        slide.className = 'lightbox-slide';
-        
-        const newImg = document.createElement('img');
-        newImg.src = img.src;
-        newImg.alt = img.alt;
-        
-        slide.appendChild(newImg);
-        lightboxSlider.appendChild(slide);
-      });
-      
-      // 4. Mostrar el Lightbox
-      const lightbox = document.getElementById('lightbox');
-      lightbox.style.display = 'flex';
-      
-      // 5. Mover el scroll directamente a la foto pulsada
-      const slideWidth = lightboxSlider.clientWidth;
-      lightboxSlider.scrollLeft = targetIndex * slideWidth;
+    /* Estilos para el Lightbox a pantalla completa */
+    .lightbox-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.95);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
     }
-
-    function closeLightbox() {
-      document.getElementById('lightbox').style.display = 'none';
+    .lightbox-slider {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
     }
-    
-    // Asignar la función de clic de forma automática a todas las fotos del piso
-    document.querySelectorAll('.photo-card img').forEach(img => {
-      img.addEventListener('click', function() {
-        openLightbox(this);
-      });
-    });
-  </script>
-    
+    .lightbox-slider::-webkit-scrollbar {
+      display: none;
+    }
+    .lightbox-slide {
+      flex: 0 0 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      scroll-snap-align: start;
+    }
+    .lightbox-slide img {
+      max-width: 95%;
+      max-height: 85%;
+      object-fit: contain;
+      border-radius: 4px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      color: white;
+      font-size: 35px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 1010;
+      user-select: none;
+    }
+    .photo-card img {
+      cursor: zoom-in;
+    }
     /* CONTENEDOR DESLIZANTE HORIZONTAL (Carrusel nativo) */
     .slider-container {
       display: flex;
@@ -292,5 +297,54 @@
 
   </div>
 
+    <!-- Capa del Lightbox para ampliación de imágenes -->
+  <div id="lightbox" class="lightbox-overlay">
+    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+    <div id="lightbox-slider" class="lightbox-slider"></div>
+  </div>
+
+  <script>
+    function openLightbox(clickedImg) {
+      const section = clickedImg.closest('.inventory-section');
+      const allImgs = section.querySelectorAll('.photo-card img');
+      const lightboxSlider = document.getElementById('lightbox-slider');
+      
+      lightboxSlider.innerHTML = '';
+      
+      let targetIndex = 0;
+      allImgs.forEach((img, index) => {
+        if (img.src === clickedImg.src) {
+          targetIndex = index;
+        }
+        const slide = document.createElement('div');
+        slide.className = 'lightbox-slide';
+        
+        const newImg = document.createElement('img');
+        newImg.src = img.src;
+        newImg.alt = img.alt;
+        
+        slide.appendChild(newImg);
+        lightboxSlider.appendChild(slide);
+      });
+      
+      const lightbox = document.getElementById('lightbox');
+      lightbox.style.display = 'flex';
+      
+      setTimeout(() => {
+        const slideWidth = lightboxSlider.clientWidth;
+        lightboxSlider.scrollLeft = targetIndex * slideWidth;
+      }, 50);
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+    }
+    
+    document.querySelectorAll('.photo-card img').forEach(img => {
+      img.addEventListener('click', function() {
+        openLightbox(this);
+      });
+    });
+  </script>
 </body>
 </html>
