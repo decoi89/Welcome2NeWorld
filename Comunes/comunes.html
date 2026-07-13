@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeWorld - Inventario Zonas Comunes</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+      background: linear-gradient(to bottom, #000000, #333333);
+    }
+    .header {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      background-color: #000000;
+    }
+    .header-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+    .container {
+      background-color: rgba(0, 0, 0, 0.6);
+      margin: 0 auto;
+      max-width: 800px;
+      padding: 40px 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+      margin-bottom: 50px;
+      box-sizing: border-box;
+    }
+    h2 {
+      color: #ff0000;
+      margin-bottom: 25px;
+      text-transform: uppercase;
+      font-size: 22px;
+      letter-spacing: 1px;
+    }
+    .legal-notice {
+      background-color: rgba(255, 0, 0, 0.1);
+      border-left: 5px solid #ff0000;
+      padding: 15px;
+      border-radius: 4px;
+      text-align: justify;
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 35px;
+    }
+    .inventory-section {
+      margin-bottom: 40px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 30px;
+    }
+    .inventory-section:last-of-type {
+      border-bottom: none;
+    }
+    .section-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* CONTENEDOR DESLIZANTE HORIZONTAL (Carrusel nativo) */
+    .slider-container {
+      display: flex;
+      gap: 15px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 15px;
+      margin-bottom: 25px;
+      /* Oculta la barra de scroll en Firefox */
+      scrollbar-width: none; 
+    }
+    /* Oculta la barra de scroll en Chrome, Safari y Edge */
+    .slider-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Caja de cada fotografía dentro del carrusel */
+    .photo-card {
+      flex: 0 0 280px; /* Ancho fijo de cada foto en el carrusel */
+      scroll-snap-align: start;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background-color: #111;
+      aspect-ratio: 4 / 3;
+    }
+    @media (min-width: 600px) {
+      .photo-card {
+        flex: 0 0 320px; /* Un pelín más grandes en pantallas medianas */
+      }
+    }
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .inventory-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .inventory-list li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 8px;
+      font-size: 15px;
+      color: #d1d5db;
+      line-height: 1.4;
+    }
+    .inventory-list li::before {
+      content: "▪";
+      position: absolute;
+      left: 0;
+      color: #ff0000;
+    }
+    .btn {
+      display: inline-block;
+      background-color: #ff0000;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-size: 16px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.1s ease;
+      min-width: 220px;
+    }
+    .btn:active {
+      background-color: #d1d5db;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <a href="index.html">
+      <img src="background.png" alt="cabecera NeWorld" class="header-img">
+    </a>
+  </div>
+  
+  <div class="container">
+    
+    <h2>Anexo Fotográfico: Zonas Comunes</h2>
+    
+    <div class="legal-notice">
+      <strong>INSPECCIÓN DE ZONAS COMPARTIDAS:</strong> Desliza horizontalmente las imágenes de cada sección para inspeccionar el reportaje fotográfico completo. Estos listados detallan el estado oficial de entrega de las áreas comunes del inmueble.
+    </div>
+
+    <!-- SECCIÓN 1: LA COCINA (Deslizable) -->
+    <div class="inventory-section">
+      <div class="section-title">🍳 1. Cuina Compartida</div>
+      
+      <div class="slider-container">
+        <div class="photo-card"><img src="Cuina1.jpg" alt="Cuina 1"></div>
+        <div class="photo-card"><img src="Cuina2.jpg" alt="Cuina 2"></div>
+        <div class="photo-card"><img src="Cuina3.jpg" alt="Cuina 3"></div>
+        <div class="photo-card"><img src="Cuina4.jpg" alt="Cuina 4"></div>
+        <div class="photo-card"><img src="Cuina5.jpg" alt="Cuina 5"></div>
+      </div>
+
+      <ul class="inventory-list">
+        <li>Nevera combi grande con congelador de tres cajones.</li>
+        <li>Horno eléctrico integrado y vitrocerámica de 3 fuegos.</li>
+        <li>Horno microondas digital de alta potencia.</li>
+        <li>Mobiliario completo de almacenaje superior e inferior.</li>
+        <li>Menaje básico, sartenes, vajilla y cubertería común.</li>
+      </ul>
+    </div>
+
+    <!-- SECCIÓN 2: EL SALÓN / COMEDOR (Deslizable) -->
+    <div class="inventory-section">
+      <div class="section-title">🛋️ 2. Menjador / Saló</div>
+      
+      <div class="slider-container">
+        <div class="photo-card"><img src="Menjador1.jpg" alt="Menjador 1"></div>
+        <div class="photo-card"><img src="Menjador2.jpg" alt="Menjador 2"></div>
+        <div class="photo-card"><img src="Menjador3.jpg" alt="Menjador 3"></div>
+        <div class="photo-card"><img src="Menjador4.jpg" alt="Menjador 4"></div>
+      </div>
+
+      <ul class="inventory-list">
+        <li>Sofá confortable de plazas compartidas.</li>
+        <li>Mesa de comedor central con su juego de sillas.</li>
+        <li>Mueble modular para televisión y almacenaje.</li>
+        <li>Televisor Smart TV conectado a la red del piso.</li>
+        <li>Iluminación LED y elementos decorativos NeWorld.</li>
+      </ul>
+    </div>
+
+    <!-- SECCIÓN 3: EL BAÑO (Deslizable) -->
+    <div class="inventory-section">
+      <div class="section-title">🚿 3. Bany</div>
+      
+      <div class="slider-container">
+        <div class="photo-card"><img src="Bany1.jpg" alt="Bany 1"></div>
+        <div class="photo-card"><img src="Bany2.jpg" alt="Bany 2"></div>
+        <div class="photo-card"><img src="Bany3.jpg" alt="Bany 3"></div>
+      </div>
+
+      <ul class="inventory-list">
+        <li>Plato de ducha con mampara de cristal protegida.</li>
+        <li>Mueble de lavabo con espejo superior integrado.</li>
+        <li>Lavadora automática de carga frontal para uso común.</li>
+        <li>Estanterías divisorias para almacenamiento personal.</li>
+      </ul>
+    </div>
+
+    <!-- Botón de retorno al panel de Inmueble -->
+    <div style="text-align: center; margin-top: 30px;">
+      <a href="Inmueble/inmueble.html" class="btn">
+          ← Volver a Selección
+      </a>
+    </div>
+
+  </div>
+
+</body>
+</html>
