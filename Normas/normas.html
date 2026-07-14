@@ -210,20 +210,22 @@
   <script>
     function toggleButtons() {
       var checkBox = document.getElementById("accept-inventory");
-      var btnComunes = document.getElementById("btn-comunes");
-      var btnH2 = document.getElementById("btn-h2");
-      var btnH3 = document.getElementById("btn-h3");
+      var btnRegistro = document.getElementById("btn-registro");
       
       if (checkBox.checked == true) {
-        // Si está marcado, quitamos la restricción y se vuelven rojos
-        btnComunes.classList.remove("disabled");
-        btnH2.classList.remove("disabled");
-        btnH3.classList.remove("disabled");
+        // Al marcar: quitamos el bloqueo, ponemos fondo rojo y cursor normal
+        btnRegistro.removeAttribute("disabled");
+        btnRegistro.classList.remove("disabled");
+        btnRegistro.style.backgroundColor = "#ff0000";
+        btnRegistro.style.color = "#ffffff";
+        btnRegistro.style.cursor = "pointer";
       } else {
-        // Si se desmarca, se vuelven a bloquear en gris
-        btnComunes.classList.add("disabled");
-        btnH2.classList.add("disabled");
-        btnH3.classList.add("disabled");
+        // Al desmarcar: volvemos a bloquear, fondo gris y cursor prohibido
+        btnRegistro.setAttribute("disabled", "disabled");
+        btnRegistro.classList.add("disabled");
+        btnRegistro.style.backgroundColor = "#555555";
+        btnRegistro.style.color = "#aaaaaa";
+        btnRegistro.style.cursor = "not-allowed";
       }
     }
   </script>
