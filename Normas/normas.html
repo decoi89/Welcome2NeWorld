@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NeWorld - Normas</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NeWorld - Inmueble</title>
   <style>
-    /* Calco exacto de tus estilos base e identidad de color */
     body {
       margin: 0;
       padding: 0;
@@ -38,7 +37,63 @@
       border-radius: 10px;
       margin-top: 50px;
     }
-    /* Estilos de los botones de Normas */
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+    .description {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 35px;
+      text-align: justify;
+    }
+    img.RobotThinking {
+      width: 300px !important;
+      height: auto;
+      display: block;
+      margin: 20px auto;
+    }
+    
+    /* Caja de aviso legal idéntica a la de normas.html */
+    .legal-notice {
+      background-color: rgba(255, 0, 0, 0.15);
+      border-left: 4px solid #ff0000;
+      padding: 15px;
+      border-radius: 6px;
+      margin-bottom: 25px;
+      text-align: left;
+    }
+    .legal-notice strong {
+      color: #ff0000;
+    }
+
+    /* Contenedor del checkbox interactivo */
+    .checkbox-container {
+      margin: 25px 0 35px 0;
+      padding: 15px;
+      background-color: rgba(255, 255, 255, 0.03);
+      border-radius: 6px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      text-align: left;
+    }
+    .checkbox-container input[type="checkbox"] {
+      margin-top: 4px;
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+    .checkbox-label {
+      font-size: 14px;
+      line-height: 1.4;
+      color: #e5e7eb;
+      cursor: pointer;
+    }
+
+    /* Estilos de los botones del Inmueble */
     .btn {
       display: inline-block;
       background-color: #ff0000;
@@ -53,163 +108,111 @@
       box-sizing: border-box;
       transition: background-color 0.1s ease, opacity 0.3s ease;
     }
-    img.Stop {
-      width: 300px !important;
-      height: auto;
-      display: block;
-      margin: 20px auto;
-    }
-
-    /* Adaptación del bloque legal y lista de pautas */
-    .legal-notice {
-      background-color: rgba(255, 0, 0, 0.15);
-      border-left: 4px solid #ff0000;
-      padding: 15px;
-      border-radius: 6px;
-      margin-bottom: 25px;
-      text-align: left;
-    }
-    .legal-notice strong {
-      color: #ff0000;
-    }
-    .rules-list {
-      list-style: none;
-      text-align: left;
-      margin-bottom: 30px;
-      padding: 0 10px;
-    }
-    .rules-list li {
-      position: relative;
-      padding-left: 25px;
-      margin-bottom: 12px;
-      font-size: 16px;
-      line-height: 1.5;
-    }
-    .rules-list li::before {
-      content: "✓";
-      position: absolute;
-      left: 0;
-      color: #ff0000;
-      font-weight: bold;
-    }
-    /* Contenedor adaptivo para el Checkbox */
-    .checkbox-container input[type="checkbox"] {
-      margin-top: 4px;
-      width: 18px;
-      height: 18px;
-      cursor: pointer;
-    }
-    .checkbox-label {
-      font-size: 14px;
-      line-height: 1.4;
-      color: #e5e7eb;
-      cursor: pointer;
-    }
-    /* Botón dinámico interactivo */
-    .btn {
-      display: inline-block;
-      padding: 15px 25px;
-      margin: 10px;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      text-decoration: none;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.1s ease;
-      width: auto;
-    }
-    .btn-enabled {
-      background-color: #ff0000;
-      color: white;
-    }
-    .btn-enabled:active {
-      background-color: #d1d5db !important; /* Gris claro al pulsar */
-    }
-    .btn-disabled {
-      background-color: #4b5563; /* Gris apagado cuando está bloqueado */
-      color: #9ca3af;
+    /* Clase para cuando los botones están bloqueados */
+    .btn.disabled {
+      background-color: #555555 !important;
+      color: #aaaaaa !important;
       cursor: not-allowed;
+      pointer-events: none; /* Impide que hagan clic */
+      opacity: 0.6;
+    }
+    .btn:not(.disabled):active {
+      background-color: #d1d5db;
+      color: black;
     }
   </style>
 </head>
 <body>
-
-  <!-- Cabecera idéntica usando tu misma imagen subiendo un nivel de carpeta -->
-  <div class="header">
+  <!-- 1. Cabecera enlazada al inicio (Subiendo un nivel) -->
+    <div class="header">
     <a href="../index.html">
       <img src="../background.png" alt="cabecera NeWorld" class="header-img">
     </a>
   </div>
-  <div class="container">
+<div class="container">
+    <h1 class="title">Inspección del Inmueble</h1>
     
-    <!-- Aviso Vinculación Contractual -->
+    <p class="description">
+      Bienvenido al panel de control del inmueble. Antes de proceder a la firma, el sistema requiere que realices una verificación del estado físico de la vivienda.
+    </p>
+
+    <!-- Caja de aviso legal -->
     <div class="legal-notice">
-      <strong>AVISO LEGAL IMPORTANTE:</strong> La aceptación de las siguientes normas tiene carácter vinculante y contractual. Su incumplimiento de forma reiterada facultará a la propiedad para rescindir el contrato de arrendamiento.
+      <strong>AVISO REQUERIDO:</strong> Para habilitar el acceso a las carpetas técnicas y reportajes fotográficos del piso, debes confirmar la aceptación de los términos de inventario contractuales descritos a continuación.
     </div>
 
     <!-- Imagen del Robot Blanco apuntando al archivo real corregido -->
-    <img src="Stop.png" alt="Robot Stop" class="Stop">
+    <img src="RobotThinking.png" alt="Robot Thinking" class="RobotThinking">
 
-    <!-- Listado estructurado de normas -->
-    <ul class="rules-list">
-      <li>Respetar estrictamente el descanso de los convivientes y vecinos de 22:00 a 08:00 horas.</li>
-      <li>Mantener la limpieza e higiene diaria de las zonas comunes tras cada uso personal.</li>
-      <li>Prohibido el subarriendo de la estancia o el alojamiento permanente de personas ajenas.</li>
-      <li>Hacer un uso responsable, sostenible y eficiente de los suministros compartidos.</li>
-      <li>Cuidar el mobiliario, instalaciones y electrodomésticos puestos a disposición.</li>
+    <!-- Bloque de Normas con tics rojos (Pegar debajo del robot) -->
+    <ul style="list-style: none; padding: 0; margin: 30px auto; text-align: left; max-width: 500px;">
+      <li style="margin-bottom: 15px; font-size: 15px; line-height: 1.4; color: #d1d5db; position: relative; padding-left: 25px;">
+        <span style="color: #ff0000; position: absolute; left: 0; font-weight: bold;">✓</span>
+        Respetar estrictamente el descanso de los convivientes y vecinos de 22:00 a 08:00 horas.
+      </li>
+      <li style="margin-bottom: 15px; font-size: 15px; line-height: 1.4; color: #d1d5db; position: relative; padding-left: 25px;">
+        <span style="color: #ff0000; position: absolute; left: 0; font-weight: bold;">✓</span>
+        Mantener la limpieza e higiene diaria de las zonas comunes tras cada uso personal.
+      </li>
+      <li style="margin-bottom: 15px; font-size: 15px; line-height: 1.4; color: #d1d5db; position: relative; padding-left: 25px;">
+        <span style="color: #ff0000; position: absolute; left: 0; font-weight: bold;">✓</span>
+        Prohibido el subarriendo de la estancia o el alojamiento permanente de personas ajenas.
+      </li>
+      <li style="margin-bottom: 15px; font-size: 15px; line-height: 1.4; color: #d1d5db; position: relative; padding-left: 25px;">
+        <span style="color: #ff0000; position: absolute; left: 0; font-weight: bold;">✓</span>
+        Hacer un uso responsable, sostenible y eficiente de los suministros compartidos.
+      </li>
+      <li style="margin-bottom: 15px; font-size: 15px; line-height: 1.4; color: #d1d5db; position: relative; padding-left: 25px;">
+        <span style="color: #ff0000; position: absolute; left: 0; font-weight: bold;">✓</span>
+        Cuidar el mobiliario, instalaciones y electrodomésticos puestos a disposición.
+      </li>
     </ul>
 
-    <!-- Formulario que conecta directamente con tu paso de Google Forms -->
-    <form id="rulesForm" action="TU_ENLACE_DE_GOOGLE_FORMS_AQUI" method="GET">
-
-    <!-- Botón de retorno al panel de Inmueble -->
-      <a href="https://decoi89.github.io/Welcome2NeWorld/Inmueble/inmueble.html" class="btn">
-          ← Volver a Selección
-      </a>
-    </div>
-  
-      <!-- Zona de Checkbox interactiva -->
-      <div class="checkbox-container" onclick="toggleCheckbox()">
-        <input type="checkbox" id="checkboxlabel" name="accept" required onchange="manageButtonState()">
-        <label for="acceptRules" class="checkbox-label">
-          He leído con atención, comprendo las normas de convivencia de NeWorld y acepto su plena vinculación contractual con mi estancia.
+    <!-- 1. El checkbox interactivo -->
+    <div class="checkbox-container">
+        <input type="checkbox" id="accept-inventory" onchange="toggleButtons()">
+        <label for="accept-inventory" class="checkbox-label">
+            He leído con atención, comprendo las normas de convivencia de NeWorld y acepto su plena vinculación contractual con mi estancia.
         </label>
-      </div>
+    </div>
 
-      <!-- Botón de acción inicialmente bloqueado -->
-      <div style="text-align: center; margin-bottom: 20px; margin-top: 30px;">
-        <button type="submit" id="submitBtn" class="btn btn-disabled" disabled>
-          Proceder al Registro →
+    <!-- 2. Zona de botones inferiores (Fuera del formulario de bloqueo) -->
+    <div style="margin-top: 30px; display: flex; flex-direction: column; gap: 15px; align-items: center;">
+        
+        <!-- BOTÓN DE REGISTRO (Empieza bloqueado en gris) -->
+        <button type="submit" id="submitBtn" class="btn btn-disabled" disabled style="width: 80%;">
+            Proceder al Registro →
         </button>
-    </form>
+
+        <!-- BOTÓN DE RETORNO ROJO (100% activo todo el rato) -->
+        <a href="../Inmueble/inmueble.html" class="btn" style="width: 80%;">
+            ← Volver a Selección
+        </a>
+
+    </div>
   </div>
 
+  <!-- Programación para desbloquear los botones al marcar la casilla -->
   <script>
-    // Control de estados bloqueado/activo para el botón rojo
-    function manageButtonState() {
-      const checkbox = document.getElementById('acceptRules');
-      const button = document.getElementById('submitBtn');
+    function toggleButtons() {
+      var checkBox = document.getElementById("accept-inventory");
+      var btnComunes = document.getElementById("btn-comunes");
+      var btnH2 = document.getElementById("btn-h2");
+      var btnH3 = document.getElementById("btn-h3");
       
-      if(checkbox.checked) {
-        button.disabled = false;
-        button.classList.remove('btn-disabled');
-        button.classList.add('btn-enabled');
+      if (checkBox.checked == true) {
+        // Si está marcado, quitamos la restricción y se vuelven rojos
+        btnComunes.classList.remove("disabled");
+        btnH2.classList.remove("disabled");
+        btnH3.classList.remove("disabled");
       } else {
-        button.disabled = true;
-        button.classList.remove('btn-enabled');
-        button.classList.add('btn-disabled');
-      }
-    }
-
-    // Permite marcar la casilla haciendo clic en cualquier parte de su recuadro
-    function toggleCheckbox() {
-      const checkbox = document.getElementById('acceptRules');
-      if (event.target.tagName !== 'INPUT') {
-        checkbox.checked = !checkbox.checked;
-        manageButtonState();
+        // Si se desmarca, se vuelven a bloquear en gris
+        btnComunes.classList.add("disabled");
+        btnH2.classList.add("disabled");
+        btnH3.classList.add("disabled");
       }
     }
   </script>
+
 </body>
 </html>
