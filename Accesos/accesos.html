@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NeWorld - Accesos</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+      background: linear-gradient(to bottom, #000000, #333333);
+    }
+    .header {
+      width: 100%;
+      height: min(300px, 25vw); 
+      overflow: hidden;
+      position: relative;
+      background-color: #000000;
+    }
+    .header-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 45%;
+      display: block;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+    }
+    .container {
+      background-color: rgba(0, 0, 0, 0.6);
+      margin: 0 auto;
+      max-width: 700px;
+      padding: 30px 20px;
+      border-radius: 10px;
+      margin-top: 50px;
+    }
+    h2 {
+      color: #ff0000;
+      margin-bottom: 25px;
+      text-transform: uppercase;
+      font-size: 22px;
+      letter-spacing: 1px;
+    }
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+    .description {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 35px;
+      text-align: justify;
+    }
+    img.Stop {
+      width: 300px !important;
+      height: auto;
+      display: block;
+      margin: 20px auto;
+    }
+    
+    /* Caja de aviso legal idéntica a la de normas.html */
+    .legal-notice {
+      background-color: rgba(255, 0, 0, 0.15);
+      border-left: 4px solid #ff0000;
+      padding: 15px;
+      border-radius: 6px;
+      margin-bottom: 25px;
+      text-align: left;
+    }
+    .legal-notice strong {
+      color: #ff0000;
+    }
+
+    /* Contenedor del checkbox interactivo */
+    .checkbox-container {
+      margin: 25px 0 35px 0;
+      padding: 15px;
+      background-color: rgba(255, 255, 255, 0.03);
+      border-radius: 6px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      text-align: left;
+    }
+    .checkbox-container input[type="checkbox"] {
+      margin-top: 4px;
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+    .checkbox-label {
+      font-size: 14px;
+      line-height: 1.4;
+      color: #e5e7eb;
+      cursor: pointer;
+    }
+
+    /* Estilos de los botones del Inmueble */
+    .btn {
+      display: inline-block;
+      background-color: #ff0000;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-size: 16px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-bottom: 15px;
+      width: 80%;
+      box-sizing: border-box;
+      transition: background-color 0.1s ease, opacity 0.3s ease;
+    }
+    /* Clase para cuando los botones están bloqueados */
+    .btn.disabled {
+      background-color: #555555 !important;
+      color: #aaaaaa !important;
+      cursor: not-allowed;
+      pointer-events: none; /* Impide que hagan clic */
+      opacity: 0.6;
+    }
+    .btn:not(.disabled):active {
+      background-color: #d1d5db;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <!-- 1. Cabecera enlazada al inicio (Subiendo un nivel) -->
+    <div class="header">
+    <a href="../index.html">
+      <img src="../background.png" alt="cabecera NeWorld" class="header-img">
+    </a>
+  </div>
+<div class="container">
+    <h2 class="title">Normas y aclaraciones.</h2>
+    
+    <p class="description">
+       ¡Enhorabuena! Tras la validación de tu documentación y la firma digital del contrato de arrendamiento, tu registro en el ecosistema <span style="color: #ff0000; font-weight: bold;">NeWorld</span> está completado. A continuación, dispones del acceso exclusivo a las credenciales y conectividad de la vivienda.
+
+        <!-- CUADRO ESTILO AVISO LEGAL: Instrucciones de Conectividad -->
+    <div style="background-color: rgba(255, 0, 0, 0.1); border: 1px solid #ff0000; border-radius: 8px; padding: 20px; max-width: 500px; margin: 25px auto; text-align: justify; box-sizing: border-box;">
+        <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #ffffff;">
+            <strong style="color: #ffcc00; display: block; text-align: center; margin-bottom: 10px; font-size: 16px;">⚠️ INSTRUCCIONES DE ACCESO ⚠️</strong>
+            A continuación tienes el QR para conectarte directamente al WiFi de la propiedad. Una vez estés conectado, procede a descargar las aplicaciones de acceso de las cerraduras inteligentes pulsando los botones que encontrarás debajo del QR.
+        </p>
+    </div>
+
+    <!-- BLOQUE DEL QR DEL WIFI -->
+    <div style="text-align: center; margin: 30px auto;">
+        <!-- Datos de texto de la red -->
+        <p style="color: #ffffff; font-size: 15px; margin-bottom: 15px;">
+            <strong style="color: #ffcc00;">Red:</strong> NOMBRE_DE_TU_RED_WIFI_AQUÍ <br>
+            <strong style="color: #ffcc00;">Contraseña:</strong> CONTRASEÑA_DE_TU_WIFI_AQUÍ
+        </p>
+        
+        <!-- Contenedor de la Imagen QR -->
+        <div style="background-color: #ffffff; padding: 15px; display: inline-block; border-radius: 6px; margin-bottom: 10px;">
+            <img src="AQUÍ_VA_LA_RUTA_DE_TU_IMAGEN_DEL_QR_DE_WIFI" alt="QR WiFi NeWorld" style="width: 180px; height: 180px; display: block;">
+        </div>
+    </div>
+
+    <!-- BOTONES DE DESCARGA DE LAS APP CERRADURAS (Debajo del QR) -->
+    <div style="margin-top: 30px; display: flex; flex-direction: column; gap: 15px; align-items: center;">
+        
+        <!-- Botón App Entrada Principal -->
+        <a href="AQUÍ_VA_EL_ENLACE_DE_DESCARGA_APP_ENTRADA" class="btn" style="width: 80%; max-width: 260px; display: inline-block; text-align: center; background-color: #ff0000; color: white; text-decoration: none; font-weight: bold; padding: 12px 0; border-radius: 6px;">
+            Descargar App Entrada Principal
+        </a>
+
+        <!-- Botón App Habitación -->
+        <a href="AQUÍ_VA_EL_ENLACE_DE_DESCARGA_APP_HABITACION" class="btn" style="width: 80%; max-width: 260px; display: inline-block; text-align: center; background-color: #ff0000; color: white; text-decoration: none; font-weight: bold; padding: 12px 0; border-radius: 6px;">
+            Descargar App Habitación
+        </a>
+
+    </div>
+
+      
+    </div>
+  </div>
+
+  <!-- Programación para desbloquear los botones al marcar la casilla -->
+  <script>
+    function toggleButtons() {
+      var checkBox = document.getElementById("accept-inventory");
+      var btnRegistro = document.getElementById("btn-registro");
+      
+      if (checkBox.checked == true) {
+        // Al marcar: quitamos el bloqueo, ponemos fondo rojo y cursor normal
+        btnRegistro.removeAttribute("disabled");
+        btnRegistro.classList.remove("disabled");
+        btnRegistro.style.backgroundColor = "#ff0000";
+        btnRegistro.style.color = "#ffffff";
+        btnRegistro.style.cursor = "pointer";
+      } else {
+        // Al desmarcar: volvemos a bloquear, fondo gris y cursor prohibido
+        btnRegistro.setAttribute("disabled", "disabled");
+        btnRegistro.classList.add("disabled");
+        btnRegistro.style.backgroundColor = "#555555";
+        btnRegistro.style.color = "#aaaaaa";
+        btnRegistro.style.cursor = "not-allowed";
+      }
+    }
+  </script>
+
+</body>
+</html>
